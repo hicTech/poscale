@@ -315,7 +315,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 body {
-  background: #fff;
+  background: #181c24;
   font-family: 'Montserrat', sans-serif;
 }
 .container {
@@ -323,55 +323,95 @@ body {
   width: 350px;
 }
 .container .tachometer {
-  background: #fff;
+  background: #181922;
   margin: 10px auto;
   width: 350px;
   height: 350px;
-  border: 2px solid rgba(0, 0, 0, 0);
+  border: 1px solid rgba(218, 139, 125, 0.1);
   border-radius: 100%;
   display: block;
   position: relative;
-  box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 0.025), 0px 0px 20px 10px rgba(0, 0, 0, 0.025);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3), inset 0px 0px 15px 2px rgba(251, 118, 75, 0.1);
 }
 .container .tachometer .line {
-  background: #e99abe;
+  background: #fb764b;
   height: 0;
   left: 50%;
   position: absolute;
   top: 50%;
   width: 0;
   transform-origin: 50% 100%;
-  margin: -110px -2px 0;
-  padding: 110px 2px 0;
+  margin: -120px -1px 0;
+  padding: 120px 1px 0;
   z-index: 2;
-  transform: rotate(30deg);
+  transform: rotate(-30deg);
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  box-shadow: 5px -10px 20px 2px rgba(251, 118, 75, 0.3);
 }
 .container .tachometer .line:after {
   position: absolute;
   content: ".";
-  background-color: rgba(255, 0, 0, 0.3);
+  background: #fb764b;
   color: rgba(0, 0, 0, 0);
-  bottom: 135px;
-  left: 0px;
+  bottom: 167px;
+  left: -1px;
   width: 4px;
-  height: 40px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  height: 10px;
+  box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.35);
+}
+.container .tachometer .line:before {
+  position: absolute;
+  content: ".";
+  background: #fb764b;
+  color: rgba(0, 0, 0, 0);
+  bottom: 90px;
+  left: -4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.15);
 }
 .container .tachometer .pin {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   left: 50%;
   top: 50%;
   margin: -20px 0 0 -20px;
-  background-color: #fafafa;
+  background-color: #734b47;
   border-radius: 50%;
   position: absolute;
   z-index: 4;
-  border: solid 1px #add8fe;
+  border: solid 3px white;
+  position: relative;
+}
+.container .tachometer .pin:after {
+  width: 340px;
+  position: absolute;
+  font-size: 0.7em;
+  color: rgba(218, 139, 125, 0.33);
+  font-weight: 300;
+  bottom: -50px;
+  left: -150px;
+  text-align: center;
+}
+.container .tachometer .pin .delta_indicator {
+  content: ".";
+  opacity: 0.85;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border: solid 0px white;
+  background-color: #734b47;
+  color: #734b47;
+  border-radius: 50%;
+  z-index: 4;
+  position: relative;
+}
+.container .tachometer.gr .pin:after {
+  content: "gg 33 - 0.5gg";
 }
 .container .tachometer.gr .bar {
   position: absolute;
@@ -391,21 +431,21 @@ body {
   display: block;
   left: 50%;
   width: 1px;
-  height: 30px;
-  background: #add8fe;
+  height: 20px;
+  background: rgba(218, 139, 125, 0.33);
   margin: 0 0px 0;
 }
 .container .tachometer.gr .bar div b .num_text {
   color: yellow;
   width: 40px;
   height: 40px;
-  margin: 30px 0px 0px -20px;
+  margin: 15px 0px 0px -19px;
   text-align: center;
   position: relative;
   transform: rotate(0deg) !important;
 }
 .container .tachometer.gr .bar div b .num_text:after {
-  color: rgba(0, 0, 0, 0.5);
+  color: #fcb5a7;
   font-weight: 300;
 }
 .container .tachometer.gr .bar div:nth-child(even) b {
@@ -414,7 +454,7 @@ body {
   left: 50%;
   width: 1px;
   height: 10px;
-  background: rgba(173, 216, 254, 0.5);
+  background: rgba(218, 139, 125, 0.19);
   margin: 0 0px 0;
   top: 16px;
 }
@@ -423,539 +463,542 @@ body {
 }
 .container .tachometer.gr .bar div:nth-child(1) b .num_text:after {
   content: '0';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(2) {
   transform: rotate(calc(195deg + calc( 5*1deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(2) b .num_text:after {
   content: '1';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(3) {
   transform: rotate(calc(195deg + calc( 5*2deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(3) b .num_text:after {
   content: '1';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(4) {
   transform: rotate(calc(195deg + calc( 5*3deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(4) b .num_text:after {
   content: '2';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(5) {
   transform: rotate(calc(195deg + calc( 5*4deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(5) b .num_text:after {
   content: '2';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(6) {
   transform: rotate(calc(195deg + calc( 5*5deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(6) b .num_text:after {
   content: '3';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(7) {
   transform: rotate(calc(195deg + calc( 5*6deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(7) b .num_text:after {
   content: '3';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(8) {
   transform: rotate(calc(195deg + calc( 5*7deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(8) b .num_text:after {
   content: '4';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(9) {
   transform: rotate(calc(195deg + calc( 5*8deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(9) b .num_text:after {
   content: '4';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(10) {
   transform: rotate(calc(195deg + calc( 5*9deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(10) b .num_text:after {
   content: '5';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(11) {
   transform: rotate(calc(195deg + calc( 5*10deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(11) b .num_text:after {
   content: '5';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(12) {
   transform: rotate(calc(195deg + calc( 5*11deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(12) b .num_text:after {
   content: '6';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(13) {
   transform: rotate(calc(195deg + calc( 5*12deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(13) b .num_text:after {
   content: '6';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(14) {
   transform: rotate(calc(195deg + calc( 5*13deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(14) b .num_text:after {
   content: '7';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(15) {
   transform: rotate(calc(195deg + calc( 5*14deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(15) b .num_text:after {
   content: '7';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(16) {
   transform: rotate(calc(195deg + calc( 5*15deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(16) b .num_text:after {
   content: '8';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(17) {
   transform: rotate(calc(195deg + calc( 5*16deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(17) b .num_text:after {
   content: '8';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(18) {
   transform: rotate(calc(195deg + calc( 5*17deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(18) b .num_text:after {
   content: '9';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(19) {
   transform: rotate(calc(195deg + calc( 5*18deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(19) b .num_text:after {
   content: '9';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(20) {
   transform: rotate(calc(195deg + calc( 5*19deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(20) b .num_text:after {
   content: '10';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(21) {
   transform: rotate(calc(195deg + calc( 5*20deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(21) b .num_text:after {
   content: '10';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(22) {
   transform: rotate(calc(195deg + calc( 5*21deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(22) b .num_text:after {
   content: '11';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(23) {
   transform: rotate(calc(195deg + calc( 5*22deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(23) b .num_text:after {
   content: '11';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(24) {
   transform: rotate(calc(195deg + calc( 5*23deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(24) b .num_text:after {
   content: '12';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(25) {
   transform: rotate(calc(195deg + calc( 5*24deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(25) b .num_text:after {
   content: '12';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(26) {
   transform: rotate(calc(195deg + calc( 5*25deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(26) b .num_text:after {
   content: '13';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(27) {
   transform: rotate(calc(195deg + calc( 5*26deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(27) b .num_text:after {
   content: '13';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(28) {
   transform: rotate(calc(195deg + calc( 5*27deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(28) b .num_text:after {
   content: '14';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(29) {
   transform: rotate(calc(195deg + calc( 5*28deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(29) b .num_text:after {
   content: '14';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(30) {
   transform: rotate(calc(195deg + calc( 5*29deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(30) b .num_text:after {
   content: '15';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(31) {
   transform: rotate(calc(195deg + calc( 5*30deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(31) b .num_text:after {
   content: '15';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(32) {
   transform: rotate(calc(195deg + calc( 5*31deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(32) b .num_text:after {
   content: '16';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(33) {
   transform: rotate(calc(195deg + calc( 5*32deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(33) b .num_text:after {
   content: '16';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(34) {
   transform: rotate(calc(195deg + calc( 5*33deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(34) b .num_text:after {
   content: '17';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(35) {
   transform: rotate(calc(195deg + calc( 5*34deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(35) b .num_text:after {
   content: '17';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(36) {
   transform: rotate(calc(195deg + calc( 5*35deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(36) b .num_text:after {
   content: '18';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(37) {
   transform: rotate(calc(195deg + calc( 5*36deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(37) b .num_text:after {
   content: '18';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(38) {
   transform: rotate(calc(195deg + calc( 5*37deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(38) b .num_text:after {
   content: '19';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(39) {
   transform: rotate(calc(195deg + calc( 5*38deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(39) b .num_text:after {
   content: '19';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(40) {
   transform: rotate(calc(195deg + calc( 5*39deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(40) b .num_text:after {
   content: '20';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(41) {
   transform: rotate(calc(195deg + calc( 5*40deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(41) b .num_text:after {
   content: '20';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(42) {
   transform: rotate(calc(195deg + calc( 5*41deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(42) b .num_text:after {
   content: '21';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(43) {
   transform: rotate(calc(195deg + calc( 5*42deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(43) b .num_text:after {
   content: '21';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(44) {
   transform: rotate(calc(195deg + calc( 5*43deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(44) b .num_text:after {
   content: '22';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(45) {
   transform: rotate(calc(195deg + calc( 5*44deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(45) b .num_text:after {
   content: '22';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(46) {
   transform: rotate(calc(195deg + calc( 5*45deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(46) b .num_text:after {
   content: '23';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(47) {
   transform: rotate(calc(195deg + calc( 5*46deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(47) b .num_text:after {
   content: '23';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(48) {
   transform: rotate(calc(195deg + calc( 5*47deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(48) b .num_text:after {
   content: '24';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(49) {
   transform: rotate(calc(195deg + calc( 5*48deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(49) b .num_text:after {
   content: '24';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(50) {
   transform: rotate(calc(195deg + calc( 5*49deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(50) b .num_text:after {
   content: '25';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(51) {
   transform: rotate(calc(195deg + calc( 5*50deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(51) b .num_text:after {
   content: '25';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(52) {
   transform: rotate(calc(195deg + calc( 5*51deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(52) b .num_text:after {
   content: '26';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(53) {
   transform: rotate(calc(195deg + calc( 5*52deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(53) b .num_text:after {
   content: '26';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(54) {
   transform: rotate(calc(195deg + calc( 5*53deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(54) b .num_text:after {
   content: '27';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(55) {
   transform: rotate(calc(195deg + calc( 5*54deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(55) b .num_text:after {
   content: '27';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(56) {
   transform: rotate(calc(195deg + calc( 5*55deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(56) b .num_text:after {
   content: '28';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(57) {
   transform: rotate(calc(195deg + calc( 5*56deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(57) b .num_text:after {
   content: '28';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(58) {
   transform: rotate(calc(195deg + calc( 5*57deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(58) b .num_text:after {
   content: '29';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(59) {
   transform: rotate(calc(195deg + calc( 5*58deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(59) b .num_text:after {
   content: '29';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(60) {
   transform: rotate(calc(195deg + calc( 5*59deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(60) b .num_text:after {
   content: '30';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(61) {
   transform: rotate(calc(195deg + calc( 5*60deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(61) b .num_text:after {
   content: '30';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(62) {
   transform: rotate(calc(195deg + calc( 5*61deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(62) b .num_text:after {
   content: '31';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(63) {
   transform: rotate(calc(195deg + calc( 5*62deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(63) b .num_text:after {
   content: '31';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(64) {
   transform: rotate(calc(195deg + calc( 5*63deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(64) b .num_text:after {
   content: '32';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(65) {
   transform: rotate(calc(195deg + calc( 5*64deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(65) b .num_text:after {
   content: '32';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(66) {
   transform: rotate(calc(195deg + calc( 5*65deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(66) b .num_text:after {
   content: '33';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(67) {
   transform: rotate(calc(195deg + calc( 5*66deg) ));
 }
 .container .tachometer.gr .bar div:nth-child(67) b .num_text:after {
   content: '33';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.gr .bar div:nth-child(even) b .num_text:after {
   content: "";
+}
+.container .tachometer.oz .pin:after {
+  content: "ozs 1.15 - 0.025oz";
 }
 .container .tachometer.oz .bar {
   position: absolute;
@@ -975,21 +1018,21 @@ body {
   display: block;
   left: 50%;
   width: 1px;
-  height: 30px;
-  background: #add8fe;
+  height: 20px;
+  background: rgba(218, 139, 125, 0.33);
   margin: 0 0px 0;
 }
 .container .tachometer.oz .bar div b .num_text {
   color: yellow;
   width: 40px;
   height: 40px;
-  margin: 30px 0px 0px -20px;
+  margin: 15px 0px 0px -20px;
   text-align: center;
   position: relative;
   transform: rotate(0deg) !important;
 }
 .container .tachometer.oz .bar div b .num_text:after {
-  color: rgba(0, 0, 0, 0.5);
+  color: #fcb5a7;
   font-weight: 300;
 }
 .container .tachometer.oz .bar div:nth-child(even) b {
@@ -998,7 +1041,7 @@ body {
   left: 50%;
   width: 1px;
   height: 10px;
-  background: rgba(173, 216, 254, 0.5);
+  background: rgba(218, 139, 125, 0.19);
   margin: 0 0px 0;
   top: 16px;
 }
@@ -1007,376 +1050,376 @@ body {
 }
 .container .tachometer.oz .bar div:nth-child(1) b .num_text:after {
   content: '0';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(2) {
   transform: rotate(calc(195deg + calc( 7.08738*1deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(2) b .num_text:after {
   content: '0.03';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(3) {
   transform: rotate(calc(195deg + calc( 7.08738*2deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(3) b .num_text:after {
   content: '0.05';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(4) {
   transform: rotate(calc(195deg + calc( 7.08738*3deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(4) b .num_text:after {
   content: '0.08';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(5) {
   transform: rotate(calc(195deg + calc( 7.08738*4deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(5) b .num_text:after {
   content: '0.1';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(6) {
   transform: rotate(calc(195deg + calc( 7.08738*5deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(6) b .num_text:after {
   content: '0.13';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(7) {
   transform: rotate(calc(195deg + calc( 7.08738*6deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(7) b .num_text:after {
   content: '0.15';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(8) {
   transform: rotate(calc(195deg + calc( 7.08738*7deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(8) b .num_text:after {
   content: '0.18';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(9) {
   transform: rotate(calc(195deg + calc( 7.08738*8deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(9) b .num_text:after {
   content: '0.2';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(10) {
   transform: rotate(calc(195deg + calc( 7.08738*9deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(10) b .num_text:after {
   content: '0.23';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(11) {
   transform: rotate(calc(195deg + calc( 7.08738*10deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(11) b .num_text:after {
   content: '0.25';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(12) {
   transform: rotate(calc(195deg + calc( 7.08738*11deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(12) b .num_text:after {
   content: '0.28';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(13) {
   transform: rotate(calc(195deg + calc( 7.08738*12deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(13) b .num_text:after {
   content: '0.3';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(14) {
   transform: rotate(calc(195deg + calc( 7.08738*13deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(14) b .num_text:after {
   content: '0.33';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(15) {
   transform: rotate(calc(195deg + calc( 7.08738*14deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(15) b .num_text:after {
   content: '0.35';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(16) {
   transform: rotate(calc(195deg + calc( 7.08738*15deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(16) b .num_text:after {
   content: '0.38';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(17) {
   transform: rotate(calc(195deg + calc( 7.08738*16deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(17) b .num_text:after {
   content: '0.4';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(18) {
   transform: rotate(calc(195deg + calc( 7.08738*17deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(18) b .num_text:after {
   content: '0.43';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(19) {
   transform: rotate(calc(195deg + calc( 7.08738*18deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(19) b .num_text:after {
   content: '0.45';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(20) {
   transform: rotate(calc(195deg + calc( 7.08738*19deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(20) b .num_text:after {
   content: '0.48';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(21) {
   transform: rotate(calc(195deg + calc( 7.08738*20deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(21) b .num_text:after {
   content: '0.5';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(22) {
   transform: rotate(calc(195deg + calc( 7.08738*21deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(22) b .num_text:after {
   content: '0.53';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(23) {
   transform: rotate(calc(195deg + calc( 7.08738*22deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(23) b .num_text:after {
   content: '0.55';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(24) {
   transform: rotate(calc(195deg + calc( 7.08738*23deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(24) b .num_text:after {
   content: '0.58';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(25) {
   transform: rotate(calc(195deg + calc( 7.08738*24deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(25) b .num_text:after {
   content: '0.6';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(26) {
   transform: rotate(calc(195deg + calc( 7.08738*25deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(26) b .num_text:after {
   content: '0.63';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(27) {
   transform: rotate(calc(195deg + calc( 7.08738*26deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(27) b .num_text:after {
   content: '0.65';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(28) {
   transform: rotate(calc(195deg + calc( 7.08738*27deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(28) b .num_text:after {
   content: '0.68';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(29) {
   transform: rotate(calc(195deg + calc( 7.08738*28deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(29) b .num_text:after {
   content: '0.7';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(30) {
   transform: rotate(calc(195deg + calc( 7.08738*29deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(30) b .num_text:after {
   content: '0.73';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(31) {
   transform: rotate(calc(195deg + calc( 7.08738*30deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(31) b .num_text:after {
   content: '0.75';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(32) {
   transform: rotate(calc(195deg + calc( 7.08738*31deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(32) b .num_text:after {
   content: '0.78';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(33) {
   transform: rotate(calc(195deg + calc( 7.08738*32deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(33) b .num_text:after {
   content: '0.8';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(34) {
   transform: rotate(calc(195deg + calc( 7.08738*33deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(34) b .num_text:after {
   content: '0.83';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(35) {
   transform: rotate(calc(195deg + calc( 7.08738*34deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(35) b .num_text:after {
   content: '0.85';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(36) {
   transform: rotate(calc(195deg + calc( 7.08738*35deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(36) b .num_text:after {
   content: '0.88';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(37) {
   transform: rotate(calc(195deg + calc( 7.08738*36deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(37) b .num_text:after {
   content: '0.9';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(38) {
   transform: rotate(calc(195deg + calc( 7.08738*37deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(38) b .num_text:after {
   content: '0.93';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(39) {
   transform: rotate(calc(195deg + calc( 7.08738*38deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(39) b .num_text:after {
   content: '0.95';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(40) {
   transform: rotate(calc(195deg + calc( 7.08738*39deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(40) b .num_text:after {
   content: '0.98';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(41) {
   transform: rotate(calc(195deg + calc( 7.08738*40deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(41) b .num_text:after {
   content: '1';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(42) {
   transform: rotate(calc(195deg + calc( 7.08738*41deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(42) b .num_text:after {
   content: '1.03';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(43) {
   transform: rotate(calc(195deg + calc( 7.08738*42deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(43) b .num_text:after {
   content: '1.05';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(44) {
   transform: rotate(calc(195deg + calc( 7.08738*43deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(44) b .num_text:after {
   content: '1.07';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(45) {
   transform: rotate(calc(195deg + calc( 7.08738*44deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(45) b .num_text:after {
   content: '1.1';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(46) {
   transform: rotate(calc(195deg + calc( 7.08738*45deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(46) b .num_text:after {
   content: '1.13';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(47) {
   transform: rotate(calc(195deg + calc( 7.08738*46deg) ));
 }
 .container .tachometer.oz .bar div:nth-child(47) b .num_text:after {
   content: '1.15';
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.8em;
+  color: #fcb5a7;
+  font-size: 0.7em;
 }
 .container .tachometer.oz .bar div:nth-child(even) b .num_text:after {
   content: "";

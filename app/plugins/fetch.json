@@ -7,10 +7,18 @@
     "is_top_level": true,
     "variables": {}
   },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
   "cordova-plugin-device-motion": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-device-motion@^2.0.1"
+      "id": "cordova-plugin-device-motion"
     },
     "is_top_level": true,
     "variables": {}
