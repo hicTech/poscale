@@ -1,6 +1,7 @@
 /* 1 grammo = 0,035274 oz */
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,900&display=swap');
+@import "cssglobal/flex";
 
 @size: 350px;
 @num_text_color: #fcb5a7;
@@ -259,7 +260,9 @@ body{
             }
           }
         }
-
+          div.not_oz{
+            display:none;
+          }
           div:nth-child(even) b {
             position: absolute;
             display: block;
@@ -310,4 +313,26 @@ body{
     }
    
   }
+
+  .options_row{
+    height: 110px;
+    
+    .single_option{
+      padding: 6px 10px;
+
+      &.active{
+        opacity: 1 !important;
+        font-size: 1.35em;
+        color:rgb(251, 118, 75);
+        text-shadow: 0px 0px 15px;
+      }
+    }
+    
+  }
 }
+
+
+
+
+
+

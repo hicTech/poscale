@@ -1,0 +1,78 @@
+<style rel="stylesheet/less">
+
+@PopupOverlay-z-index:                              999;
+@PopupOverlay-popup-bg-color:                       rgba(50,50,60,0.95);
+
+@PopupOverlay-popup-width:                          80%;
+@PopupOverlay-popup-height:                         80%;
+
+@PopupOverlay-popup-width-tablet:                   80%;
+@PopupOverlay-popup-height-tablet:                  90%;
+
+@PopupOverlay-popup-width-mobile:                   100%;
+@PopupOverlay-popup-height-mobile:                  100%;
+
+
+
+.PopupOverlay{
+  z-index: @PopupOverlay-z-index;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+
+  &._module{
+    ._extender();
+
+
+    >._padder{
+      ._padder-center();
+
+
+      >._extender{
+        position: relative;
+
+        @media @onlyScreen and @notebook-and-more  {
+          width:@PopupOverlay-popup-width;
+          height: @PopupOverlay-popup-height;
+        }
+
+        @media @onlyScreen and @tablet  {
+          width:@PopupOverlay-popup-width-tablet;
+          height: @PopupOverlay-popup-height-tablet;
+        }
+
+        @media @onlyScreen and @mobile  {
+          width:@PopupOverlay-popup-width-mobile;
+          height: @PopupOverlay-popup-height-mobile;
+        }
+
+        >._wrapper{
+          ._extender();
+          background-color: @PopupOverlay-popup-bg-color;
+        }
+
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>

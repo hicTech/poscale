@@ -48,6 +48,601 @@
   font-display: swap;
   src: local('Montserrat Black'), local('Montserrat-Black'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_epG3gnD-w.ttf) format('truetype');
 }
+/*!   flexScaffolding 0.4 - Nov 2018  */
+/*
+  _____  _______ ___ _  _ ___  ___ ___
+ | __\ \/ /_   _| __| \| |   \| __| _ \
+ | _| >  <  | | | _|| .` | |) | _||   /
+ |___/_/\_\ |_| |___|_|\_|___/|___|_|_\
+
+
+  -------------------------- root container --------------------------
+                            ._extender
+                            ._extender();
+
+  Provides a container that fits all the available space and lets
+  ._rows/._cols to stretch and fill the available space (height for rows, width for cols)
+
+  --------------------------------------------------------------------
+*/
+._extender {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+/*
+  ___  _____      _____    __        ___ ___  _    ___
+ | _ \/ _ \ \    / / __|  / _|___   / __/ _ \| |  / __|
+ |   / (_) \ \/\/ /\__ \  > _|_ _| | (_| (_) | |__\__ \
+ |_|_\\___/ \_/\_/ |___/  \_____|   \___\___/|____|___/
+
+
+-------------------------- flex containers --------------------------
+                            ._rows ._cols
+                         ._rows(); ._cols();
+
+
+Splits the space (the father's space / ._extender or ._padder) by rows or columns.
+Establishes the main-axis, thus defining the direction flex items are placed in the flex container
+
+  class="_cols" or ._cols();
+     - forces its children (._cell) to be 100% height columns;
+     - main-axis : horizontal
+     - cross-axis: vertical
+
+  class="_rows" or ._rows();
+    - forces its children (._cell) to be 100% width rows
+    - main-axis: vertical
+    - cross-axis: horizontal
+
+  class="_reverse"
+    - reverses the order of the children
+
+
+--------------------------------------------------------------------
+*/
+._cols {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-box-pack: start;
+  /* main-axis */
+  align-items: stretch;
+  -webkit-align-items: stretch;
+  -webkit-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  /* cross-axis */
+}
+._cols._reverse {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+}
+._rows {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-box-pack: start;
+  /* main-axis */
+  align-items: stretch;
+  -webkit-align-items: stretch;
+  -webkit-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  /* cross-axis */
+}
+._rows._reverse {
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+}
+/*
+
+     _ _   _ ___ _____ ___ _____   __
+  _ | | | | / __|_   _|_ _| __\ \ / /
+ | || | |_| \__ \ | |  | || _| \ V /
+  \__/ \___/|___/ |_| |___|_|   |_|
+
+-------------------------- main-axis properties --------------------------
+                ._jus-center ._jus-end ._jus-around ._jus-between
+
+They can be applied only to _rows and _cols.
+These properties manipulates the main-axis disposition of the children.
+_jus- stands for justify and they work only if _rows and _cols doesn't contains flex children.
+In Fact, a flexible child will take all the available space (the space
+leave free from its siblings) and they would be justified
+
+  class="_jus-start" or ._jus-start()
+   - DEFAULT children will be left|top aligned and without margin between them
+
+  class="_jus-center" or ._jus-center()
+   - children will be centered without margin between them
+
+  class="_jus-end" or ._jus-end()
+   - children will be right|bottom aligned without margin between them
+
+  class="_jus-between" or ._jus-between()
+   - The space is divided evenly in-between each child, with none of the extra space placed before the first child or after the last child
+
+  class="_jus-around" or ._jus-around()
+   - same behavior of ._jus-between but the margin of the last and the first child will be half the margin between the various children
+
+
+--------------------------------------------------------------------
+*/
+._jus-start {
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-box-pack: start;
+}
+._jus-center {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+}
+._jus-end {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-pack: end;
+}
+._jus-between {
+  /* partial support:  FF 22+ */
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+}
+._jus-around {
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-pack: distribute;
+}
+/*
+    _   _    ___ ___ _  _
+   /_\ | |  |_ _/ __| \| |
+  / _ \| |__ | | (_ | .` |
+ /_/ \_\____|___\___|_|\_|
+
+
+-------------------------- cross-axis properties --------------------------
+             ._all_center ._all_end ._all_stretch ._all_baseline
+         ._all_center(); ._all_end(); ._all_stretch(); ._all_baseline();
+
+They can be applied only to _rows and _cols.
+These properties manipulates the cross-axis disposition of ALL the children by
+align-items property. By default is .stretch so children fill all the cross-axis
+available space (height for ._cols and width for ._rows)
+
+--------------------------------------------------------------------
+*/
+._all_end {
+  align-items: end;
+  -webkit-align-items: flex-end;
+  -webkit-align: flex-end;
+  -ms-flex-align: flex-end;
+  -webkit-box-align: flex-end;
+}
+._all_start {
+  align-items: start;
+  -webkit-align-items: flex-start;
+  -webkit-align: flex-start;
+  -ms-flex-align: flex-start;
+  -webkit-box-align: flex-start;
+}
+._all_center {
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-align: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+}
+._all_stretch {
+  align-items: stretch;
+  -webkit-align-items: stretch;
+  -webkit-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+}
+._all_baseline {
+  align-items: baseline;
+  -webkit-align-items: baseline;
+  -webkit-align: baseline;
+  -ms-flex-align: baseline;
+  -webkit-box-align: baseline;
+}
+/*
+   ___ ___ _    _
+  / __| __| |  | |
+ | (__| _|| |__| |__
+  \___|___|____|____|
+
+--------------- flexible or static items (children) ---------------
+                          ._cell ._flex
+
+These are the children inside a flexible container. We call ._cell cause
+they can be vertical or horizontal elements depending on their direct father.
+
+If father is a _cols
+  - main-axis: horizontal;
+  - cross-axis: vertical;
+  - ._cell will be 100% height columns and the width depends on their content;
+  - ._cell ._flex will be 100% height columns and the width grows to fill all the available (horizontal) space;
+  - ._cell ._150px will be 100% height column with width 150px;
+  - ._cell ._50pct will be 100% height column with width 50%.
+
+If father is .ROWS
+  - main-axis: vertical, cross-axis: horizontal;
+  - ._cell will be 100% width rows and the height depends on their content;
+  - ._cell ._flex will be 100% width rows and the height grows to fill all the available (vertical) space;
+  - ._cell ._150px will be 100% width row with height 150px;
+  - ._cell ._50pct will be 100% width row with height 50%.
+
+
+--------------------------------------------------------------------
+*/
+._cell {
+  position: relative;
+  overflow: hidden;
+}
+._cell._flex {
+  /* Old Syntax */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  /* New Syntax */
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex1 {
+  /* Old Syntax */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  /* New Syntax */
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex2 {
+  /* Old Syntax */
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  /* New Syntax */
+  -webkit-flex: 2;
+  flex: 2;
+  -ms-flex: 2;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex3 {
+  /* Old Syntax */
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  /* New Syntax */
+  -webkit-flex: 3;
+  flex: 3;
+  -ms-flex: 3;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex4 {
+  /* Old Syntax */
+  -webkit-box-flex: 4;
+  -moz-box-flex: 4;
+  /* New Syntax */
+  -webkit-flex: 4;
+  flex: 4;
+  -ms-flex: 4;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex5 {
+  /* Old Syntax */
+  -webkit-box-flex: 5;
+  -moz-box-flex: 5;
+  /* New Syntax */
+  -webkit-flex: 5;
+  flex: 5;
+  -ms-flex: 5;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._ord0 {
+  -webkit-order: 0 !important;
+  -ms-flex-order: 0 !important;
+  order: 0 !important;
+}
+._cell._ord1 {
+  -webkit-order: 1 !important;
+  -ms-flex-order: 1 !important;
+  order: 1 !important;
+}
+._cell._ord2 {
+  -webkit-order: 2 !important;
+  -ms-flex-order: 2 !important;
+  order: 2 !important;
+}
+._cell._ord3 {
+  -webkit-order: 3 !important;
+  -ms-flex-order: 3 !important;
+  order: 3 !important;
+}
+._cell._ord4 {
+  -webkit-order: 4 !important;
+  -ms-flex-order: 4 !important;
+  order: 4 !important;
+}
+._cell._ord5 {
+  -webkit-order: 5 !important;
+  -ms-flex-order: 5 !important;
+  order: 5 !important;
+}
+._flex {
+  overflow: hidden;
+  /* Old Syntax */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  /* New Syntax */
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+/*
+
+   ___ ___ _    _        _   _    ___ ___ _  _ ___
+  / __| __| |  | |      /_\ | |  |_ _/ __| \| / __|
+ | (__| _|| |__| |__   / _ \| |__ | | (_ | .` \__ \
+  \___|___|____|____| /_/ \_\____|___\___|_|\_|___/
+
+
+-------------------------- cross-axis properties --------------------------
+                    .CENTER .END .STRETCH .BASELINE
+
+._cell are ._auto by default so inherit father's cross-axis align
+(by default . STRETCH) so ._cell are .STRETCH by default. With these
+properties we can set a different align to a specific ._cell
+
+--------------------------------------------------------------------
+*/
+._auto {
+  -ms-flex-item-align: auto;
+  -webkit-align-self: auto;
+  align-self: auto;
+}
+._start {
+  -ms-flex-item-align: start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+._end {
+  -ms-flex-item-align: end;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+._center {
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+._stretch {
+  -ms-flex-item-align: stretch;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+._baseline {
+  -ms-flex-item-align: baseline;
+  -webkit-align-self: baseline;
+  align-self: baseline;
+}
+.cellNoFlex {
+  -webkit-box-ordinal-group: none;
+  -moz-box-ordinal-group: none;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-box-flex: none;
+  -moz-box-flex: none;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+/*-------------------------- browsers abbreviations */
+.displayFlex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+/*
+  ___  _   ___  ___  ___ ___  ___
+ | _ \/_\ |   \|   \| __| _ \/ __|
+ |  _/ _ \| |) | |) | _||   /\__ \
+ |_|/_/ \_\___/|___/|___|_|_\|___/
+
+
+-------------------------- padder --------------------------
+                    ._padder0, ._padder5, ._padder10,.....
+
+Sets an uniform padding inside an .EXTENDER.
+By default you can set a padding of 5, 10, 15, 25, 35, 45, 55 or centered
+--------------------------------------------------------------------
+
+*/
+._padder-center {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+._padder-center ._module {
+  position: relative;
+}
+._padder0 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+._padder,
+._padder10 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+}
+._padder5 {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  right: 5px;
+}
+._padder15 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+}
+._padder20 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+}
+._padder25 {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  bottom: 25px;
+  right: 25px;
+}
+._padder35 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  bottom: 35px;
+  right: 35px;
+}
+._padder45 {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  bottom: 45px;
+  right: 45px;
+}
+._padder55 {
+  position: absolute;
+  top: 55px;
+  left: 55px;
+  bottom: 55px;
+  right: 55px;
+}
+/*
+
+  ___  ___ ___  ___  _    _      _   ___ _    ___
+ / __|/ __| _ \/ _ \| |  | |    /_\ | _ ) |  | __|
+ \__ \ (__|   / (_) | |__| |__ / _ \| _ \ |__| _|
+ |___/\___|_|_\\___/|____|____/_/ \_\___/____|___|
+
+
+
+-------------------------- scrollable --------------------------
+                    ._scrollable
+
+Sets a scrollable area with touch support
+--------------------------------------------------------------------
+
+*/
+._scrollable {
+  /* partial supported: iOs 5+ */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+._scrollable_x {
+  /* partial supported: iOs 5+ */
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 body {
   background: #181c24;
   font-family: 'Montserrat', sans-serif;
@@ -770,6 +1365,9 @@ body {
   color: #fcb5a7;
   font-weight: 300;
 }
+.container .tachometer.oz .bar div.not_oz {
+  display: none;
+}
 .container .tachometer.oz .bar div:nth-child(even) b {
   position: absolute;
   display: block;
@@ -1158,4 +1756,16 @@ body {
 }
 .container .tachometer.oz .bar div:nth-child(even) b .num_text:after {
   content: "";
+}
+.container .options_row {
+  height: 110px;
+}
+.container .options_row .single_option {
+  padding: 6px 10px;
+}
+.container .options_row .single_option.active {
+  opacity: 1 !important;
+  font-size: 1.35em;
+  color: #fb764b;
+  text-shadow: 0px 0px 15px;
 }

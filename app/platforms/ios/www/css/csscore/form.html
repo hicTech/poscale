@@ -1,0 +1,239 @@
+<style rel="stylesheet/less">
+
+
+  @Form-element-font-size-em:                   1em;
+@Form-element-color:                          white;
+@Form-element-border:                         1px;
+
+@Form-element-vertical-padding-em:            1;
+@Form-element-horizontal-padding-em:          1;
+
+@Form-element-bg-color:                       rgba(0,0,0,0.15);
+@Form-element-bg-color-focus:                 rgba(0,0,0,0.05);
+@Form-element-box-shadow:                     inset 3px 3px 6px rgba(0,0,0,.04);
+@Form-element-hint-font-size-decrement-em:    0.2;
+
+@Form-element-select-border-radius:           10px;
+@Form-element-select-border-radius-mobile:    6px;
+
+@Form-element-textarea-min-height:            90px;
+@Form-element-textarea-horizontal-padding:    20px;
+@Form-element-textarea-vertical-padding:      10px;
+
+@computed-Form-element-inner-height:          (@Form-element-font-size-em + (2 * @Form-element-vertical-padding-em))*16;
+
+
+
+
+/*
+
+
+
+
+
+*/
+
+
+.Form-element{
+
+  position: relative;
+  width: 100% !important;
+  display: inline-block;
+
+  input[type="color"],
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="search"],
+  input[type="password"],
+  input[type="url"],
+  input[type="email"],
+  input[type="datetime-local"],
+  input[type="number"],
+  textarea,
+  select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    font-family: @Font-family-base !important;
+    color: @Form-element-color;
+    border: solid @Form-element-border rgba(0,0,0,0.1);
+    box-shadow: @Form-element-box-shadow;
+    background-color: @Form-element-bg-color;
+
+    font-size: unit(@Form-element-font-size-em,em) !important;
+    height: unit(@computed-Form-element-inner-height,px) !important;
+    padding-left: unit(@Form-element-horizontal-padding-em, em);
+
+    @media @onlyScreen and @smallmobile, @mobile {
+      height: unit(@computed-Form-element-inner-height,px) / 1.1 !important;
+    }
+
+    &:disabled{
+      opacity: 0.4;
+    }
+
+
+  }
+
+  input[type="range"]{
+    width: 100%;
+    height: 5px !important;
+    border-radius: 5px;
+  }
+
+  &[data-icon]{
+    input,select{
+      padding-left: unit(3 * @Form-element-horizontal-padding-em, em);
+    }
+  }
+
+  
+
+
+
+
+  /* ICONS */
+  &:before{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    bottom: 0px;
+    font-size: unit(@Form-element-font-size-em,em) !important;
+    padding-left: unit(@Form-element-font-size-em,em) !important;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    color: #a3a3a3;
+  }
+
+  /* HINTS */
+  &:after{
+    font-family: @Font-family-base !important;
+    position: absolute;
+    content: attr(data-hint);
+    display: block;
+    vertical-align: baseline;
+    height: unit(2 * @Form-element-font-size-em,em);
+    line-height: unit(2 * @Form-element-font-size-em,em);
+    padding-left: unit(@Form-element-horizontal-padding-em, em);
+    font-size: unit(@Form-element-font-size-em - @Form-element-hint-font-size-decrement-em, em);
+    color: lighten(@Form-element-color,30);
+    font-weight: normal;
+    opacity: 0.6;
+  }
+
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    background-color: @Form-element-bg-color-focus;
+    outline: none;
+  }
+
+
+  select {
+    -moz-appearance: window;
+    -webkit-appearance: none;
+    border-radius: @Form-element-select-border-radius !important;
+
+    @media @onlyScreen and @smallmobile, @mobile {
+      border-radius: @Form-element-select-border-radius-mobile !important;
+    }
+  }
+
+  textarea {
+    padding: @Form-element-textarea-vertical-padding @Form-element-textarea-horizontal-padding;
+    min-height: @Form-element-textarea-min-height;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    text-transform: capitalize;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    text-transform: capitalize;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    text-transform: capitalize;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    text-transform: capitalize;
+  }
+
+
+  &.little{
+
+    input[type="color"],
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="search"],
+    input[type="password"],
+    input[type="url"],
+    input[type="email"],
+    input[type="datetime-local"],
+    input[type="number"],
+    textarea,
+    select{
+      font-size: @Form-element-font-size-em - 0.12 !important;
+      height: unit(@computed-Form-element-inner-height,px) - 10 !important;
+      padding-left: unit(2.3 * @Form-element-horizontal-padding-em, em);
+
+    }
+
+    /* ICONS */
+    &:before{
+      font-size: unit(@Form-element-font-size-em,em) - 0.2 !important;
+      padding-left: @Form-element-font-size-em !important;
+    }
+
+  }
+
+  &.tiny{
+
+    input[type="color"],
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="search"],
+    input[type="password"],
+    input[type="url"],
+    input[type="email"],
+    input[type="datetime-local"],
+    input[type="number"],
+    textarea,
+    select{
+      font-size: @Form-element-font-size-em - 0.25 !important;
+      height: unit(@computed-Form-element-inner-height,px) - 17 !important;
+      padding-left: unit(2.2 * @Form-element-horizontal-padding-em, em);
+    }
+
+    /* ICONS */
+    &:before{
+      font-size: unit(@Form-element-font-size-em,em) - 0.25 !important;
+      padding-left: @Form-element-font-size-em - 0.2 !important;
+    }
+
+  }
+
+}
+
+
+
+
+</style>

@@ -16,13 +16,14 @@ var config = {
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    
+    //alert(device.model)
     var $delta_indicator = $(".delta_indicator");
     var $x = $("#x");
     var $y = $("#y");
     var $line = $(".line")
 
     startWatch();
+    bindClick();
     
     /* bolla */
     setInterval(function(){
@@ -63,12 +64,6 @@ function startWatch() {
     watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
 }
 
-function stopWatch() {
-    if (watchID) {
-        navigator.accelerometer.clearWatch(watchID);
-        watchID = null;
-    }
-}
 
 function onSuccess(acceleration) {
     addValues(acceleration.x, acceleration.y)
@@ -87,6 +82,11 @@ function addValues(x,y){
     y_values.unshift((y*1));
 }
 
+function bindClick(){
+    $(".unity").click(function(){
+        $(this).find(".single_option").toggleClass("active")
+    })
+}
 
 
 /* ========================================= utility functions */
