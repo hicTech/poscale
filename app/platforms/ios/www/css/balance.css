@@ -734,7 +734,7 @@ body {
   width: 36px;
   height: 36px;
   border: solid 0px white;
-  background-color: #734b47;
+  background-color: rgba(251, 118, 75, 0.72156863);
   color: #734b47;
   border-radius: 50%;
   z-index: 4;
@@ -1762,6 +1762,11 @@ body {
 }
 .container .options_row .single_option {
   padding: 6px 10px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  font-size: 0.75em;
 }
 .container .options_row .single_option.active {
   opacity: 1 !important;

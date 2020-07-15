@@ -22,5 +22,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-fastclick": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fastclick"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

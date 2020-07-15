@@ -1,0 +1,26 @@
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="cordova-plugin-fastclick"
+    version="1.0.0">
+
+    <name>FastClick</name>
+    <author>Maksim Chemerisuk</author>
+    <license>MIT</license>
+    <keywords>fastclick,polyfill</keywords>
+
+    <description>Cordova plugin to remove click delays on browsers with touch UIs</description>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <platform name="ios">
+        <js-module src="www/fastclick.js" name="FastClick">
+            <clobbers target="FastClick" />
+        </js-module>
+
+        <js-module src="www/bootstrap.js" name="FastClickBootstrap">
+            <runs />
+        </js-module>
+    </platform>
+</plugin>

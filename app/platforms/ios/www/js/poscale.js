@@ -84,8 +84,23 @@ function addValues(x,y){
 
 function bindClick(){
     $(".unity").click(function(){
-        $(this).find(".single_option").toggleClass("active")
+        $(this).find(".single_option").toggleClass("active");
+
+        if( ! $(this).find(".active").is(".g") )
+            $(".tachometer").removeClass("gr").addClass("oz");
+        else
+            $(".tachometer").removeClass("oz").addClass("gr");
     })
+
+    $(".bottle").click(function(){
+        $(this).find(".single_option").toggleClass("active");
+
+        if( $(this).find(".active").is(".w") )
+            console.log("setto vino");//$(".tachometer").removeClass("gr").addClass("oz");
+        else
+            console.log("setto birro");//$(".tachometer").removeClass("oz").addClass("gr");
+    })
+
 }
 
 
