@@ -1,0 +1,283 @@
+<style rel="stylesheet/less">
+@Records-splitting:                             1;
+@Records-splitting-mobile:                      1;
+@Records-width:                                 100%;
+@Records-width-mobile:                          95%;
+
+@Records-max-width:                             850px;
+
+
+@Records-record-font-size:                      0.8em;
+
+
+@Records-record-font-size-decrement-mobile:      0.15;
+@Records-record-width:                           100%;
+
+@Records-record-padder:                          30px 0px;           /*sets records row height */
+@Records-record-padder-mobile:                   20px 0px;    /*sets records row height on mobile devices*/
+@Records-record-border-bottom:                   1px solid rgba(255,255,255,0.05);
+
+@Records-record-label-color:                     white;
+@Records-record-label-font-weight:               300 !important;
+@Records-record-label-width:                     50%;           /* sets label width and value width (100% - label width) */
+@Records-record-label-width-mobile:              30%;
+
+@Records-record-label-separator:                 ":";
+@Records-record-value-padding:                   0px 20px;
+
+@Records-edit-record-label-width:                25%;
+@Records-edit-record-label-width-mobile:         25%;
+@Records-edit-record-label-separator:            "";
+
+@Records-highlighted-border-color:                #01c1dd;
+
+
+.Records{
+  width: @Records-width;
+  max-width: @Records-max-width;
+  margin: 0px auto;
+  overflow: auto;
+  .RecordsSplit(@Records-splitting);
+
+  @media @onlyScreen and @smallmobile, @mobile {
+    width:@Records-width-mobile;
+    .RecordsSplit(@Records-splitting-mobile);
+
+    &.verticalModeOnMobile{
+      .verMode();
+    }
+  }
+
+
+
+  .Record {
+    border-bottom: @Records-record-border-bottom;
+
+
+    margin: 0px auto;
+    font-size: @Records-record-font-size;
+    @media @onlyScreen and @smallmobile, @mobile {
+      font-size: @Records-record-font-size - @Records-record-font-size-decrement-mobile;
+    }
+
+    .Record-wrapper {
+      display: table;
+      width: @Records-record-width;
+      padding: @Records-record-padder;
+      border-spacing: 0px;
+
+      @media @onlyScreen and @smallmobile, @mobile {
+        padding: @Records-record-padder-mobile;
+      }
+
+
+
+      .Record-Row{
+        display: table-row;
+        .label,
+        .value {
+          display: table-cell;
+          position: relative;
+        }
+
+        .label {
+          white-space: nowrap;
+          text-align: right;
+          font-weight: @Records-record-label-font-weight;
+          color:@Records-record-label-color;
+          width: @Records-record-label-width;
+          vertical-align: middle;
+          white-space: inherit;
+        }
+        .value{
+          width: 100 - @Records-record-label-width;
+          color: @text-color-secondary;
+        }
+
+
+
+        @media @onlyScreen and @smallmobile, @mobile {
+          .value {
+            width: 100 - @Records-record-label-width-mobile;
+          }
+
+          .label {
+            width: @Records-record-label-width-mobile;
+          }
+        }
+
+        .label:after {
+          content: @Records-record-label-separator;
+        }
+
+        .value {
+          padding: @Records-record-value-padding;
+          font-weight: bold;
+
+
+
+        }
+
+      }
+
+    }
+
+    &.required{
+      .Record-wrapper{
+        .Record-Row{
+          .label:before{
+            content: "* ";
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    &.highlighted{
+      .Record-wrapper{
+        .Record-Row{
+          .label span,
+          .label:before{
+            color: @Records-highlighted-border-color;
+          }
+
+          .value div{
+            input,
+            select,
+            textarea{
+              border-color: @Records-highlighted-border-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.edit{
+    .Record {
+      .Record-wrapper {
+        .Record-Row{
+
+          .label {
+            width: @Records-edit-record-label-width;
+          }
+          .value{
+            width: 100 - @Records-edit-record-label-width;
+
+
+          }
+
+          @media @onlyScreen and @smallmobile, @mobile {
+            .value {
+              width: 100 - @Records-edit-record-label-width-mobile;
+
+
+            }
+
+            .label {
+              width: @Records-edit-record-label-width-mobile;
+            }
+          }
+
+
+          .label:after {
+            content: @Records-edit-record-label-separator;
+          }
+
+          .value {
+
+          }
+        }
+      }
+    }
+  }
+
+
+  &.verticalMode{
+    .verMode();
+  }
+
+  .verMode{
+    .Record-Row{
+      display: table-row !important;
+      .label,
+      .value {
+        display: block !important;
+        padding: 0px !important;
+        width: 100% !important;
+
+
+
+      }
+
+      .label {
+        text-align: left !important;
+        margin-bottom: 4px !important;
+      }
+
+      .label:after {
+        content: " " !important;
+      }
+
+    }
+  }
+
+
+
+  &.split1 {.RecordsSplit(1);}
+  &.split2 {.RecordsSplit(2);}
+  &.split3 {.RecordsSplit(3);}
+
+
+  &.split2,
+  &.split3{
+    .Record{
+      .Record-wrapper {
+        .Record-Row {
+          .value{
+            > div{
+              width: 95% !important;
+            }
+            > div:before{
+              @media @onlyScreen and @smallmobile, @mobile {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .RecordsSplit(@q) {
+    > .Record:first-child:nth-last-child(n+@{q}),
+    > .Record:first-child:nth-last-child(n+@{q}) ~ * {
+      float: left;
+      @percentage:100/@q;
+      width: ~"@{percentage}%";
+      position: relative;
+    }
+    .Record.forceFullWidth{
+      width: 100% !important;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>

@@ -1,0 +1,1818 @@
+/*
+build del css dal less:
+lessc balance.less balance.css
+*/
+/* 1 grammo = 0,035274 oz */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: local('Montserrat Thin'), local('Montserrat-Thin'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUQjIg1_i6t8kCHKm45_QpRyS7j.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Montserrat Light'), local('Montserrat-Light'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_cJD3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_ZpC3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_bZF3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gnD-w.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: local('Montserrat Black'), local('Montserrat-Black'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_epG3gnD-w.ttf) format('truetype');
+}
+/*!   flexScaffolding 0.4 - Nov 2018  */
+/*
+  _____  _______ ___ _  _ ___  ___ ___
+ | __\ \/ /_   _| __| \| |   \| __| _ \
+ | _| >  <  | | | _|| .` | |) | _||   /
+ |___/_/\_\ |_| |___|_|\_|___/|___|_|_\
+
+
+  -------------------------- root container --------------------------
+                            ._extender
+                            ._extender();
+
+  Provides a container that fits all the available space and lets
+  ._rows/._cols to stretch and fill the available space (height for rows, width for cols)
+
+  --------------------------------------------------------------------
+*/
+._extender {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+/*
+  ___  _____      _____    __        ___ ___  _    ___
+ | _ \/ _ \ \    / / __|  / _|___   / __/ _ \| |  / __|
+ |   / (_) \ \/\/ /\__ \  > _|_ _| | (_| (_) | |__\__ \
+ |_|_\\___/ \_/\_/ |___/  \_____|   \___\___/|____|___/
+
+
+-------------------------- flex containers --------------------------
+                            ._rows ._cols
+                         ._rows(); ._cols();
+
+
+Splits the space (the father's space / ._extender or ._padder) by rows or columns.
+Establishes the main-axis, thus defining the direction flex items are placed in the flex container
+
+  class="_cols" or ._cols();
+     - forces its children (._cell) to be 100% height columns;
+     - main-axis : horizontal
+     - cross-axis: vertical
+
+  class="_rows" or ._rows();
+    - forces its children (._cell) to be 100% width rows
+    - main-axis: vertical
+    - cross-axis: horizontal
+
+  class="_reverse"
+    - reverses the order of the children
+
+
+--------------------------------------------------------------------
+*/
+._cols {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-box-pack: start;
+  /* main-axis */
+  align-items: stretch;
+  -webkit-align-items: stretch;
+  -webkit-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  /* cross-axis */
+}
+._cols._reverse {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+}
+._rows {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-box-pack: start;
+  /* main-axis */
+  align-items: stretch;
+  -webkit-align-items: stretch;
+  -webkit-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  /* cross-axis */
+}
+._rows._reverse {
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+}
+/*
+
+     _ _   _ ___ _____ ___ _____   __
+  _ | | | | / __|_   _|_ _| __\ \ / /
+ | || | |_| \__ \ | |  | || _| \ V /
+  \__/ \___/|___/ |_| |___|_|   |_|
+
+-------------------------- main-axis properties --------------------------
+                ._jus-center ._jus-end ._jus-around ._jus-between
+
+They can be applied only to _rows and _cols.
+These properties manipulates the main-axis disposition of the children.
+_jus- stands for justify and they work only if _rows and _cols doesn't contains flex children.
+In Fact, a flexible child will take all the available space (the space
+leave free from its siblings) and they would be justified
+
+  class="_jus-start" or ._jus-start()
+   - DEFAULT children will be left|top aligned and without margin between them
+
+  class="_jus-center" or ._jus-center()
+   - children will be centered without margin between them
+
+  class="_jus-end" or ._jus-end()
+   - children will be right|bottom aligned without margin between them
+
+  class="_jus-between" or ._jus-between()
+   - The space is divided evenly in-between each child, with none of the extra space placed before the first child or after the last child
+
+  class="_jus-around" or ._jus-around()
+   - same behavior of ._jus-between but the margin of the last and the first child will be half the margin between the various children
+
+
+--------------------------------------------------------------------
+*/
+._jus-start {
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  -webkit-box-pack: start;
+}
+._jus-center {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+}
+._jus-end {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-pack: end;
+}
+._jus-between {
+  /* partial support:  FF 22+ */
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+}
+._jus-around {
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-pack: distribute;
+}
+/*
+    _   _    ___ ___ _  _
+   /_\ | |  |_ _/ __| \| |
+  / _ \| |__ | | (_ | .` |
+ /_/ \_\____|___\___|_|\_|
+
+
+-------------------------- cross-axis properties --------------------------
+             ._all_center ._all_end ._all_stretch ._all_baseline
+         ._all_center(); ._all_end(); ._all_stretch(); ._all_baseline();
+
+They can be applied only to _rows and _cols.
+These properties manipulates the cross-axis disposition of ALL the children by
+align-items property. By default is .stretch so children fill all the cross-axis
+available space (height for ._cols and width for ._rows)
+
+--------------------------------------------------------------------
+*/
+._all_end {
+  align-items: end;
+  -webkit-align-items: flex-end;
+  -webkit-align: flex-end;
+  -ms-flex-align: flex-end;
+  -webkit-box-align: flex-end;
+}
+._all_start {
+  align-items: start;
+  -webkit-align-items: flex-start;
+  -webkit-align: flex-start;
+  -ms-flex-align: flex-start;
+  -webkit-box-align: flex-start;
+}
+._all_center {
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-align: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+}
+._all_stretch {
+  align-items: stretch;
+  -webkit-align-items: stretch;
+  -webkit-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+}
+._all_baseline {
+  align-items: baseline;
+  -webkit-align-items: baseline;
+  -webkit-align: baseline;
+  -ms-flex-align: baseline;
+  -webkit-box-align: baseline;
+}
+/*
+   ___ ___ _    _
+  / __| __| |  | |
+ | (__| _|| |__| |__
+  \___|___|____|____|
+
+--------------- flexible or static items (children) ---------------
+                          ._cell ._flex
+
+These are the children inside a flexible container. We call ._cell cause
+they can be vertical or horizontal elements depending on their direct father.
+
+If father is a _cols
+  - main-axis: horizontal;
+  - cross-axis: vertical;
+  - ._cell will be 100% height columns and the width depends on their content;
+  - ._cell ._flex will be 100% height columns and the width grows to fill all the available (horizontal) space;
+  - ._cell ._150px will be 100% height column with width 150px;
+  - ._cell ._50pct will be 100% height column with width 50%.
+
+If father is .ROWS
+  - main-axis: vertical, cross-axis: horizontal;
+  - ._cell will be 100% width rows and the height depends on their content;
+  - ._cell ._flex will be 100% width rows and the height grows to fill all the available (vertical) space;
+  - ._cell ._150px will be 100% width row with height 150px;
+  - ._cell ._50pct will be 100% width row with height 50%.
+
+
+--------------------------------------------------------------------
+*/
+._cell {
+  position: relative;
+  overflow: hidden;
+}
+._cell._flex {
+  /* Old Syntax */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  /* New Syntax */
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex1 {
+  /* Old Syntax */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  /* New Syntax */
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex2 {
+  /* Old Syntax */
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  /* New Syntax */
+  -webkit-flex: 2;
+  flex: 2;
+  -ms-flex: 2;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex3 {
+  /* Old Syntax */
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  /* New Syntax */
+  -webkit-flex: 3;
+  flex: 3;
+  -ms-flex: 3;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex4 {
+  /* Old Syntax */
+  -webkit-box-flex: 4;
+  -moz-box-flex: 4;
+  /* New Syntax */
+  -webkit-flex: 4;
+  flex: 4;
+  -ms-flex: 4;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._flex5 {
+  /* Old Syntax */
+  -webkit-box-flex: 5;
+  -moz-box-flex: 5;
+  /* New Syntax */
+  -webkit-flex: 5;
+  flex: 5;
+  -ms-flex: 5;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+._cell._ord0 {
+  -webkit-order: 0 !important;
+  -ms-flex-order: 0 !important;
+  order: 0 !important;
+}
+._cell._ord1 {
+  -webkit-order: 1 !important;
+  -ms-flex-order: 1 !important;
+  order: 1 !important;
+}
+._cell._ord2 {
+  -webkit-order: 2 !important;
+  -ms-flex-order: 2 !important;
+  order: 2 !important;
+}
+._cell._ord3 {
+  -webkit-order: 3 !important;
+  -ms-flex-order: 3 !important;
+  order: 3 !important;
+}
+._cell._ord4 {
+  -webkit-order: 4 !important;
+  -ms-flex-order: 4 !important;
+  order: 4 !important;
+}
+._cell._ord5 {
+  -webkit-order: 5 !important;
+  -ms-flex-order: 5 !important;
+  order: 5 !important;
+}
+._flex {
+  overflow: hidden;
+  /* Old Syntax */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  /* New Syntax */
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+/*
+
+   ___ ___ _    _        _   _    ___ ___ _  _ ___
+  / __| __| |  | |      /_\ | |  |_ _/ __| \| / __|
+ | (__| _|| |__| |__   / _ \| |__ | | (_ | .` \__ \
+  \___|___|____|____| /_/ \_\____|___\___|_|\_|___/
+
+
+-------------------------- cross-axis properties --------------------------
+                    .CENTER .END .STRETCH .BASELINE
+
+._cell are ._auto by default so inherit father's cross-axis align
+(by default . STRETCH) so ._cell are .STRETCH by default. With these
+properties we can set a different align to a specific ._cell
+
+--------------------------------------------------------------------
+*/
+._auto {
+  -ms-flex-item-align: auto;
+  -webkit-align-self: auto;
+  align-self: auto;
+}
+._start {
+  -ms-flex-item-align: start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+._end {
+  -ms-flex-item-align: end;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+._center {
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+._stretch {
+  -ms-flex-item-align: stretch;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+._baseline {
+  -ms-flex-item-align: baseline;
+  -webkit-align-self: baseline;
+  align-self: baseline;
+}
+.cellNoFlex {
+  -webkit-box-ordinal-group: none;
+  -moz-box-ordinal-group: none;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-box-flex: none;
+  -moz-box-flex: none;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+/*-------------------------- browsers abbreviations */
+.displayFlex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+/*
+  ___  _   ___  ___  ___ ___  ___
+ | _ \/_\ |   \|   \| __| _ \/ __|
+ |  _/ _ \| |) | |) | _||   /\__ \
+ |_|/_/ \_\___/|___/|___|_|_\|___/
+
+
+-------------------------- padder --------------------------
+                    ._padder0, ._padder5, ._padder10,.....
+
+Sets an uniform padding inside an .EXTENDER.
+By default you can set a padding of 5, 10, 15, 25, 35, 45, 55 or centered
+--------------------------------------------------------------------
+
+*/
+._padder-center {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+._padder-center ._module {
+  position: relative;
+}
+._padder0 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+._padder,
+._padder10 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+}
+._padder5 {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  right: 5px;
+}
+._padder15 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+}
+._padder20 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+}
+._padder25 {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  bottom: 25px;
+  right: 25px;
+}
+._padder35 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  bottom: 35px;
+  right: 35px;
+}
+._padder45 {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  bottom: 45px;
+  right: 45px;
+}
+._padder55 {
+  position: absolute;
+  top: 55px;
+  left: 55px;
+  bottom: 55px;
+  right: 55px;
+}
+/*
+
+  ___  ___ ___  ___  _    _      _   ___ _    ___
+ / __|/ __| _ \/ _ \| |  | |    /_\ | _ ) |  | __|
+ \__ \ (__|   / (_) | |__| |__ / _ \| _ \ |__| _|
+ |___/\___|_|_\\___/|____|____/_/ \_\___/____|___|
+
+
+
+-------------------------- scrollable --------------------------
+                    ._scrollable
+
+Sets a scrollable area with touch support
+--------------------------------------------------------------------
+
+*/
+._scrollable {
+  /* partial supported: iOs 5+ */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+._scrollable_x {
+  /* partial supported: iOs 5+ */
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #181c24;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  position: fixed;
+  overflow-y: hidden;
+}
+.delta_indicator {
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out;
+}
+.container {
+  margin: 20px auto;
+  width: 350px;
+  /* iphone 6,6s,7,8 */
+}
+.container.small_iphone .tachometer {
+  transform: scale(0.95);
+}
+.container .tachometer {
+  background: #181922;
+  margin: 10px auto;
+  width: 350px;
+  height: 350px;
+  border: 1px solid rgba(218, 139, 125, 0.1);
+  border-radius: 100%;
+  display: block;
+  position: relative;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3), inset 0px 0px 15px 2px rgba(251, 118, 75, 0.1);
+}
+.container .tachometer .line {
+  background: #fb764b;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 0;
+  transform-origin: 50% 100%;
+  margin: -120px -1px 0;
+  padding: 120px 1px 0;
+  z-index: 2;
+  transform: rotate(-30deg);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  box-shadow: 5px -10px 20px 2px rgba(251, 118, 75, 0.3);
+}
+.container .tachometer .line:after {
+  position: absolute;
+  content: ".";
+  background: #fb764b;
+  color: rgba(0, 0, 0, 0);
+  bottom: 167px;
+  left: -1px;
+  width: 4px;
+  height: 10px;
+  box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.35);
+}
+.container .tachometer .line:before {
+  position: absolute;
+  content: ".";
+  background: #fb764b;
+  color: rgba(0, 0, 0, 0);
+  bottom: 90px;
+  left: -4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.15);
+}
+.container .tachometer .pin {
+  width: 36px;
+  height: 36px;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  background-color: #734b47;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 4;
+  border: solid 3px white;
+  position: relative;
+}
+.container .tachometer .pin:after {
+  width: 340px;
+  position: absolute;
+  font-size: 0.7em;
+  color: rgba(218, 139, 125, 0.33);
+  font-weight: 300;
+  bottom: -50px;
+  left: -150px;
+  text-align: center;
+}
+.container .tachometer .pin .delta_indicator {
+  content: ".";
+  opacity: 0.85;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border: solid 0px white;
+  background-color: rgba(251, 118, 75, 0.72156863);
+  color: #734b47;
+  border-radius: 50%;
+  z-index: 4;
+  position: relative;
+}
+.container .tachometer.gr .pin:after {
+  content: "gg 33 - 0.5gg";
+}
+.container .tachometer.gr .bar {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  z-index: 2;
+}
+.container .tachometer.gr .bar div {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.container .tachometer.gr .bar div b {
+  position: absolute;
+  display: block;
+  left: 50%;
+  width: 1px;
+  height: 20px;
+  background: rgba(218, 139, 125, 0.33);
+  margin: 0 0px 0;
+}
+.container .tachometer.gr .bar div b .num_text {
+  color: yellow;
+  width: 40px;
+  height: 40px;
+  margin: 15px 0px 0px -19px;
+  text-align: center;
+  position: relative;
+  transform: rotate(0deg) !important;
+}
+.container .tachometer.gr .bar div b .num_text:after {
+  color: #fcb5a7;
+  font-weight: 300;
+}
+.container .tachometer.gr .bar div:nth-child(even) b {
+  position: absolute;
+  display: block;
+  left: 50%;
+  width: 1px;
+  height: 10px;
+  background: rgba(218, 139, 125, 0.19);
+  margin: 0 0px 0;
+  top: 16px;
+}
+.container .tachometer.gr .bar div:nth-child(1) {
+  transform: rotate(calc(195deg + calc( 5*0deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(1) b .num_text:after {
+  content: '0';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(2) {
+  transform: rotate(calc(195deg + calc( 5*1deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(2) b .num_text:after {
+  content: '1';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(3) {
+  transform: rotate(calc(195deg + calc( 5*2deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(3) b .num_text:after {
+  content: '1';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(4) {
+  transform: rotate(calc(195deg + calc( 5*3deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(4) b .num_text:after {
+  content: '2';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(5) {
+  transform: rotate(calc(195deg + calc( 5*4deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(5) b .num_text:after {
+  content: '2';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(6) {
+  transform: rotate(calc(195deg + calc( 5*5deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(6) b .num_text:after {
+  content: '3';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(7) {
+  transform: rotate(calc(195deg + calc( 5*6deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(7) b .num_text:after {
+  content: '3';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(8) {
+  transform: rotate(calc(195deg + calc( 5*7deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(8) b .num_text:after {
+  content: '4';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(9) {
+  transform: rotate(calc(195deg + calc( 5*8deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(9) b .num_text:after {
+  content: '4';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(10) {
+  transform: rotate(calc(195deg + calc( 5*9deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(10) b .num_text:after {
+  content: '5';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(11) {
+  transform: rotate(calc(195deg + calc( 5*10deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(11) b .num_text:after {
+  content: '5';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(12) {
+  transform: rotate(calc(195deg + calc( 5*11deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(12) b .num_text:after {
+  content: '6';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(13) {
+  transform: rotate(calc(195deg + calc( 5*12deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(13) b .num_text:after {
+  content: '6';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(14) {
+  transform: rotate(calc(195deg + calc( 5*13deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(14) b .num_text:after {
+  content: '7';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(15) {
+  transform: rotate(calc(195deg + calc( 5*14deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(15) b .num_text:after {
+  content: '7';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(16) {
+  transform: rotate(calc(195deg + calc( 5*15deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(16) b .num_text:after {
+  content: '8';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(17) {
+  transform: rotate(calc(195deg + calc( 5*16deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(17) b .num_text:after {
+  content: '8';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(18) {
+  transform: rotate(calc(195deg + calc( 5*17deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(18) b .num_text:after {
+  content: '9';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(19) {
+  transform: rotate(calc(195deg + calc( 5*18deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(19) b .num_text:after {
+  content: '9';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(20) {
+  transform: rotate(calc(195deg + calc( 5*19deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(20) b .num_text:after {
+  content: '10';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(21) {
+  transform: rotate(calc(195deg + calc( 5*20deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(21) b .num_text:after {
+  content: '10';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(22) {
+  transform: rotate(calc(195deg + calc( 5*21deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(22) b .num_text:after {
+  content: '11';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(23) {
+  transform: rotate(calc(195deg + calc( 5*22deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(23) b .num_text:after {
+  content: '11';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(24) {
+  transform: rotate(calc(195deg + calc( 5*23deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(24) b .num_text:after {
+  content: '12';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(25) {
+  transform: rotate(calc(195deg + calc( 5*24deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(25) b .num_text:after {
+  content: '12';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(26) {
+  transform: rotate(calc(195deg + calc( 5*25deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(26) b .num_text:after {
+  content: '13';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(27) {
+  transform: rotate(calc(195deg + calc( 5*26deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(27) b .num_text:after {
+  content: '13';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(28) {
+  transform: rotate(calc(195deg + calc( 5*27deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(28) b .num_text:after {
+  content: '14';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(29) {
+  transform: rotate(calc(195deg + calc( 5*28deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(29) b .num_text:after {
+  content: '14';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(30) {
+  transform: rotate(calc(195deg + calc( 5*29deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(30) b .num_text:after {
+  content: '15';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(31) {
+  transform: rotate(calc(195deg + calc( 5*30deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(31) b .num_text:after {
+  content: '15';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(32) {
+  transform: rotate(calc(195deg + calc( 5*31deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(32) b .num_text:after {
+  content: '16';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(33) {
+  transform: rotate(calc(195deg + calc( 5*32deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(33) b .num_text:after {
+  content: '16';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(34) {
+  transform: rotate(calc(195deg + calc( 5*33deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(34) b .num_text:after {
+  content: '17';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(35) {
+  transform: rotate(calc(195deg + calc( 5*34deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(35) b .num_text:after {
+  content: '17';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(36) {
+  transform: rotate(calc(195deg + calc( 5*35deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(36) b .num_text:after {
+  content: '18';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(37) {
+  transform: rotate(calc(195deg + calc( 5*36deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(37) b .num_text:after {
+  content: '18';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(38) {
+  transform: rotate(calc(195deg + calc( 5*37deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(38) b .num_text:after {
+  content: '19';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(39) {
+  transform: rotate(calc(195deg + calc( 5*38deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(39) b .num_text:after {
+  content: '19';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(40) {
+  transform: rotate(calc(195deg + calc( 5*39deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(40) b .num_text:after {
+  content: '20';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(41) {
+  transform: rotate(calc(195deg + calc( 5*40deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(41) b .num_text:after {
+  content: '20';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(42) {
+  transform: rotate(calc(195deg + calc( 5*41deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(42) b .num_text:after {
+  content: '21';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(43) {
+  transform: rotate(calc(195deg + calc( 5*42deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(43) b .num_text:after {
+  content: '21';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(44) {
+  transform: rotate(calc(195deg + calc( 5*43deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(44) b .num_text:after {
+  content: '22';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(45) {
+  transform: rotate(calc(195deg + calc( 5*44deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(45) b .num_text:after {
+  content: '22';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(46) {
+  transform: rotate(calc(195deg + calc( 5*45deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(46) b .num_text:after {
+  content: '23';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(47) {
+  transform: rotate(calc(195deg + calc( 5*46deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(47) b .num_text:after {
+  content: '23';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(48) {
+  transform: rotate(calc(195deg + calc( 5*47deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(48) b .num_text:after {
+  content: '24';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(49) {
+  transform: rotate(calc(195deg + calc( 5*48deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(49) b .num_text:after {
+  content: '24';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(50) {
+  transform: rotate(calc(195deg + calc( 5*49deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(50) b .num_text:after {
+  content: '25';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(51) {
+  transform: rotate(calc(195deg + calc( 5*50deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(51) b .num_text:after {
+  content: '25';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(52) {
+  transform: rotate(calc(195deg + calc( 5*51deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(52) b .num_text:after {
+  content: '26';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(53) {
+  transform: rotate(calc(195deg + calc( 5*52deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(53) b .num_text:after {
+  content: '26';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(54) {
+  transform: rotate(calc(195deg + calc( 5*53deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(54) b .num_text:after {
+  content: '27';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(55) {
+  transform: rotate(calc(195deg + calc( 5*54deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(55) b .num_text:after {
+  content: '27';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(56) {
+  transform: rotate(calc(195deg + calc( 5*55deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(56) b .num_text:after {
+  content: '28';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(57) {
+  transform: rotate(calc(195deg + calc( 5*56deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(57) b .num_text:after {
+  content: '28';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(58) {
+  transform: rotate(calc(195deg + calc( 5*57deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(58) b .num_text:after {
+  content: '29';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(59) {
+  transform: rotate(calc(195deg + calc( 5*58deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(59) b .num_text:after {
+  content: '29';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(60) {
+  transform: rotate(calc(195deg + calc( 5*59deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(60) b .num_text:after {
+  content: '30';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(61) {
+  transform: rotate(calc(195deg + calc( 5*60deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(61) b .num_text:after {
+  content: '30';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(62) {
+  transform: rotate(calc(195deg + calc( 5*61deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(62) b .num_text:after {
+  content: '31';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(63) {
+  transform: rotate(calc(195deg + calc( 5*62deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(63) b .num_text:after {
+  content: '31';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(64) {
+  transform: rotate(calc(195deg + calc( 5*63deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(64) b .num_text:after {
+  content: '32';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(65) {
+  transform: rotate(calc(195deg + calc( 5*64deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(65) b .num_text:after {
+  content: '32';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(66) {
+  transform: rotate(calc(195deg + calc( 5*65deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(66) b .num_text:after {
+  content: '33';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(67) {
+  transform: rotate(calc(195deg + calc( 5*66deg) ));
+}
+.container .tachometer.gr .bar div:nth-child(67) b .num_text:after {
+  content: '33';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.gr .bar div:nth-child(even) b .num_text:after {
+  content: "";
+}
+.container .tachometer.oz .pin:after {
+  content: "ozs 1.15 - 0.025oz";
+}
+.container .tachometer.oz .bar {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  z-index: 2;
+}
+.container .tachometer.oz .bar div {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.container .tachometer.oz .bar div b {
+  position: absolute;
+  display: block;
+  left: 50%;
+  width: 1px;
+  height: 20px;
+  background: rgba(218, 139, 125, 0.33);
+  margin: 0 0px 0;
+}
+.container .tachometer.oz .bar div b .num_text {
+  color: yellow;
+  width: 40px;
+  height: 40px;
+  margin: 15px 0px 0px -20px;
+  text-align: center;
+  position: relative;
+  transform: rotate(0deg) !important;
+}
+.container .tachometer.oz .bar div b .num_text:after {
+  color: #fcb5a7;
+  font-weight: 300;
+}
+.container .tachometer.oz .bar div.not_oz {
+  display: none;
+}
+.container .tachometer.oz .bar div:nth-child(even) b {
+  position: absolute;
+  display: block;
+  left: 50%;
+  width: 1px;
+  height: 10px;
+  background: rgba(218, 139, 125, 0.19);
+  margin: 0 0px 0;
+  top: 16px;
+}
+.container .tachometer.oz .bar div:nth-child(1) {
+  transform: rotate(calc(195deg + calc( 7.08738*0deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(1) b .num_text:after {
+  content: '0';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(2) {
+  transform: rotate(calc(195deg + calc( 7.08738*1deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(2) b .num_text:after {
+  content: '0.03';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(3) {
+  transform: rotate(calc(195deg + calc( 7.08738*2deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(3) b .num_text:after {
+  content: '0.05';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(4) {
+  transform: rotate(calc(195deg + calc( 7.08738*3deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(4) b .num_text:after {
+  content: '0.08';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(5) {
+  transform: rotate(calc(195deg + calc( 7.08738*4deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(5) b .num_text:after {
+  content: '0.1';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(6) {
+  transform: rotate(calc(195deg + calc( 7.08738*5deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(6) b .num_text:after {
+  content: '0.13';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(7) {
+  transform: rotate(calc(195deg + calc( 7.08738*6deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(7) b .num_text:after {
+  content: '0.15';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(8) {
+  transform: rotate(calc(195deg + calc( 7.08738*7deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(8) b .num_text:after {
+  content: '0.18';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(9) {
+  transform: rotate(calc(195deg + calc( 7.08738*8deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(9) b .num_text:after {
+  content: '0.2';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(10) {
+  transform: rotate(calc(195deg + calc( 7.08738*9deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(10) b .num_text:after {
+  content: '0.23';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(11) {
+  transform: rotate(calc(195deg + calc( 7.08738*10deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(11) b .num_text:after {
+  content: '0.25';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(12) {
+  transform: rotate(calc(195deg + calc( 7.08738*11deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(12) b .num_text:after {
+  content: '0.28';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(13) {
+  transform: rotate(calc(195deg + calc( 7.08738*12deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(13) b .num_text:after {
+  content: '0.3';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(14) {
+  transform: rotate(calc(195deg + calc( 7.08738*13deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(14) b .num_text:after {
+  content: '0.33';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(15) {
+  transform: rotate(calc(195deg + calc( 7.08738*14deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(15) b .num_text:after {
+  content: '0.35';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(16) {
+  transform: rotate(calc(195deg + calc( 7.08738*15deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(16) b .num_text:after {
+  content: '0.38';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(17) {
+  transform: rotate(calc(195deg + calc( 7.08738*16deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(17) b .num_text:after {
+  content: '0.4';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(18) {
+  transform: rotate(calc(195deg + calc( 7.08738*17deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(18) b .num_text:after {
+  content: '0.43';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(19) {
+  transform: rotate(calc(195deg + calc( 7.08738*18deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(19) b .num_text:after {
+  content: '0.45';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(20) {
+  transform: rotate(calc(195deg + calc( 7.08738*19deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(20) b .num_text:after {
+  content: '0.48';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(21) {
+  transform: rotate(calc(195deg + calc( 7.08738*20deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(21) b .num_text:after {
+  content: '0.5';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(22) {
+  transform: rotate(calc(195deg + calc( 7.08738*21deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(22) b .num_text:after {
+  content: '0.53';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(23) {
+  transform: rotate(calc(195deg + calc( 7.08738*22deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(23) b .num_text:after {
+  content: '0.55';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(24) {
+  transform: rotate(calc(195deg + calc( 7.08738*23deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(24) b .num_text:after {
+  content: '0.58';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(25) {
+  transform: rotate(calc(195deg + calc( 7.08738*24deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(25) b .num_text:after {
+  content: '0.6';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(26) {
+  transform: rotate(calc(195deg + calc( 7.08738*25deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(26) b .num_text:after {
+  content: '0.63';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(27) {
+  transform: rotate(calc(195deg + calc( 7.08738*26deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(27) b .num_text:after {
+  content: '0.65';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(28) {
+  transform: rotate(calc(195deg + calc( 7.08738*27deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(28) b .num_text:after {
+  content: '0.68';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(29) {
+  transform: rotate(calc(195deg + calc( 7.08738*28deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(29) b .num_text:after {
+  content: '0.7';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(30) {
+  transform: rotate(calc(195deg + calc( 7.08738*29deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(30) b .num_text:after {
+  content: '0.73';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(31) {
+  transform: rotate(calc(195deg + calc( 7.08738*30deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(31) b .num_text:after {
+  content: '0.75';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(32) {
+  transform: rotate(calc(195deg + calc( 7.08738*31deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(32) b .num_text:after {
+  content: '0.78';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(33) {
+  transform: rotate(calc(195deg + calc( 7.08738*32deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(33) b .num_text:after {
+  content: '0.8';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(34) {
+  transform: rotate(calc(195deg + calc( 7.08738*33deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(34) b .num_text:after {
+  content: '0.83';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(35) {
+  transform: rotate(calc(195deg + calc( 7.08738*34deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(35) b .num_text:after {
+  content: '0.85';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(36) {
+  transform: rotate(calc(195deg + calc( 7.08738*35deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(36) b .num_text:after {
+  content: '0.88';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(37) {
+  transform: rotate(calc(195deg + calc( 7.08738*36deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(37) b .num_text:after {
+  content: '0.9';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(38) {
+  transform: rotate(calc(195deg + calc( 7.08738*37deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(38) b .num_text:after {
+  content: '0.93';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(39) {
+  transform: rotate(calc(195deg + calc( 7.08738*38deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(39) b .num_text:after {
+  content: '0.95';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(40) {
+  transform: rotate(calc(195deg + calc( 7.08738*39deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(40) b .num_text:after {
+  content: '0.98';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(41) {
+  transform: rotate(calc(195deg + calc( 7.08738*40deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(41) b .num_text:after {
+  content: '1';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(42) {
+  transform: rotate(calc(195deg + calc( 7.08738*41deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(42) b .num_text:after {
+  content: '1.03';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(43) {
+  transform: rotate(calc(195deg + calc( 7.08738*42deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(43) b .num_text:after {
+  content: '1.05';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(44) {
+  transform: rotate(calc(195deg + calc( 7.08738*43deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(44) b .num_text:after {
+  content: '1.07';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(45) {
+  transform: rotate(calc(195deg + calc( 7.08738*44deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(45) b .num_text:after {
+  content: '1.1';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(46) {
+  transform: rotate(calc(195deg + calc( 7.08738*45deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(46) b .num_text:after {
+  content: '1.13';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(47) {
+  transform: rotate(calc(195deg + calc( 7.08738*46deg) ));
+}
+.container .tachometer.oz .bar div:nth-child(47) b .num_text:after {
+  content: '1.15';
+  color: #fcb5a7;
+  font-size: 0.7em;
+}
+.container .tachometer.oz .bar div:nth-child(even) b .num_text:after {
+  content: "";
+}
+.container .options_row {
+  height: 85px;
+}
+.container .options_row .single_option {
+  padding: 6px 10px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  font-size: 0.75em;
+}
+.container .options_row .single_option.active {
+  opacity: 1 !important;
+  font-size: 1.35em;
+  color: #fb764b;
+  text-shadow: 0px 0px 15px;
+}
+.container .place_container {
+  position: fixed;
+  top: 700px;
+  left: 0px;
+  width: 100%;
+}
+.container .place_container .place {
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+.container .place_container .place .circle_place {
+  width: 80px;
+  height: 80px;
+  background-color: #fb764b;
+  border-radius: 50%;
+  border: solid 3px;
+  box-shadow: 0px 0px 20px 17px rgba(0, 0, 0, 0.2);
+}

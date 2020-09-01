@@ -1,0 +1,210 @@
+<style rel="stylesheet/less">
+
+    
+/*!   _modules 0.4 - Nov 2018  */
+
+@_module-default-padder :               0px;
+
+@_module-loading-icon-size :            30px;
+@_module-loading-icon-z-index :         1000;
+@_module-loading-icon-secondary-color:  1px solid rgba(255,255,255,0.2);
+@_module-loading-icon-primary-color:    rgba(255,255,255,0.9);
+
+@_module-loading-message:               "loading...";
+@_module-loading-message-color:         #fff;
+@_module-loading-message-font-size:     @Font-size-base - 0.2;
+@_module-loading-message-z-index :      1000;
+
+@_module-loading-overlay-bg-color :     rgba(255,255, 255, 0.35);
+
+@_module-overlay-overlay-z-index:       900;
+@_module-overlay-overlay-bg-color :     rgba(255,255, 255, 0.35);
+
+@_module-overlay-blur:                  2px;
+
+._module {
+  >._padder{
+    ._padder(@_module-default-padder);
+    >._extender {
+      ._extender();
+      >._wrapper{
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      &.loading{
+        >._wrapper{
+          .blurEffect();
+        }
+
+        &:before {
+          content: '';
+          box-sizing: border-box;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: @_module-loading-icon-size;
+          height: @_module-loading-icon-size;
+          margin-top: @_module-loading-icon-size/(-2);
+          margin-left: @_module-loading-icon-size/(-2);
+          border-radius: 50%;
+          border: @_module-loading-icon-secondary-color;
+          border-top-color: @_module-loading-icon-primary-color;
+          animation: spinner .6s linear infinite;
+          z-index: @_module-loading-icon-z-index;
+
+          @keyframes spinner {
+            to {transform: rotate(360deg);}
+          }
+
+        }
+
+        &:after {
+          ._extender();
+          ._padder-center();
+          font-size: @_module-loading-message-font-size;
+          content: @_module-loading-message;
+          color: @_module-loading-message-color;
+          background-color: @_module-loading-overlay-bg-color;
+          z-index: @_module-loading-message-z-index;
+          padding-top:30px;
+        }
+
+      }
+
+      &.overlay{
+        >._wrapper{
+          .blurEffect();
+        }
+
+        &:after {
+          ._extender();
+          ._padder-center();
+          content: "";
+          background-color: @_module-overlay-overlay-bg-color;
+          z-index: @_module-overlay-overlay-z-index;
+        }
+      }
+
+      .blurEffect {
+        filter: blur(@_module-overlay-blur); /* Someday, sigh ... */
+        -webkit-filter: blur(@_module-overlay-blur); /* Prefixed CSS3 blur filters */
+        -moz-filter: blur(@_module-overlay-blur);
+        -o-filter: blur(@_module-overlay-blur);
+        -ms-filter: blur(@_module-overlay-blur);
+        filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5'); /* IE lte 9 */
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CSS template
+.NomeModulo{
+  &._module{
+    >._padder{
+      /* ._padder0(); */
+      >._extender{ /* <------------------------- can be .loading or .overlay */
+        /* ._extender(); */
+        >._wrapper{
+
+          }
+        }
+      }
+  }
+}
+
+
+/*
+USAGE:
+
+<div class="NomeModulo _module">
+    <div class="_padder">
+        <div class="_extender">
+            <div class="_wrapper">
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+._module{
+
+      - E' il tag di root di ogni modulo;
+      - Non ha regole css, è solo un container logico;
+
+      ._padder{
+
+            - permette di definire un padding con ._padder(35px);
+            - di default non ha padding ovvero ._padder(0px);
+
+            ._extender{
+
+                - occupa tutto lo spazio concesso dal padder;
+                - definisce background-color o -image del modulo, box-shadow inset (in pratica da border escluso in dentro);
+                - può essere .loading per mandare il modulo in loading;
+                - può essere .overlay per predisporre il modulo ad un overlay;
+
+                ._wrapper{
+
+                    - contenuto effettivo del modulo;
+                    - definisce la disposizione e/o gli allineamenti dei suoi figli;
+                    - se include un modulo questo sarà del tipo:
+
+                        <div class="_NomeAltroModulo">
+                          include( <div class="NomeAltroModulo">.... )
+                        </div>
+                        <div class="_NomeAltroModulo2">
+                          include( <div class="NomeAltroModulo2">.... )
+                        </div>
+
+
+                    - ._NomeAltroModulo permette di definire gli style "esterni" al modulo (da border incluso in fuori);
+                    - gestisce logiche count :nth-child e/o separatori fra i ._NomeModulo e ._NomeModulo2;
+
+                }
+
+            }
+
+      }
+
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>

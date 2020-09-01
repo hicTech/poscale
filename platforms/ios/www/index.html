@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/poscale.css">
+        <link rel="stylesheet" type="text/css" href="css/balance.css">
+        <title>Poscale</title>
+    </head>
+
+
+    <body>
+        
+        
+        
+
+        <div class="container _extender">
+            <div class="_rows">
+
+                <!--
+                <div class="options_row _cell">
+                    <div class="_extender">
+                        <div class="_padder15">
+                            <div class="_cols">
+                                <div class="_cell _flex option unity">
+                                    <div class="single_option active g">GRAM</div>
+                                    <div class="single_option o">OUNCE</div>
+                                </div>
+                                <div class="_cell _flex option bottle" style="text-align: right;">
+                                    <div class="single_option active w">WINE BOTTLE</div>
+                                    <div class="single_option b">BEER BOTTLE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+
+                <div class="_cell" style="">
+                    <div class="tachometer gr">
+                        <div class="bar">
+                          <!-- set rotate deg in .line css class from -130 to 130 -->
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          <div><b><div class="num_text"></div></b></div>
+                          
+                          
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          <div class="not_oz"><b><div class="num_text"></div></b></div>
+                          
+                        </div>
+                                  
+                        <div class="line"></div>
+                        <div class="pin">
+                            <div class="delta_indicator"></div>
+                        </div>
+                        
+                       
+                        
+                        
+                        
+                      </div>
+                </div>
+                <div class="_cell" style="height: 30px; text-align: center; text-transform: none;">
+                    iPhone <span id="model">not found</span>
+                </div>
+                <div class="_cell" style="height: 80px;">
+                    <div> y: <span id="y"></span></div>
+                </div>
+                
+
+                <div class="place_container">
+                    <div class="place">
+                        <div class="_padder-center">
+                            <div class="circle_place"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+           
+            
+        </div>
+
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="libs/_.js"></script>
+        <script type="text/javascript" charset="utf-8" src="libs/jquery.js"></script>
+        <script type="text/javascript" src="js/poscale.js"></script>
+        <script type="text/javascript" src="js/rotate.js"></script>
+    </body>
+</html>

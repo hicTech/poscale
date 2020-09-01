@@ -1,0 +1,68 @@
+<style rel="stylesheet/less">
+@Checkbox_size: 14px;
+@Checkbox_border: 1px;
+/* better if @Checkbox_size + @Checkbox_border = odd */
+
+@Checkbox_vertical_margin: 5px;
+
+@Checkbox_checked_color: @text-color-secondary;
+@Checkbox_checked_marker_size: 60; /* % values */
+
+@Checkbox_label_checked_opacity:1;
+@Checkbox_label_unchecked_opacity:0.65;
+@Checkbox_label_font-size: @Font-size-base - 0.2;
+@Checkbox_label_horizontal_margin: 40px;
+@Checkbox_label_vertical_margin: 1px;
+
+
+input[type=checkbox],
+input[type=radio]{
+  cursor:pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: solid @Checkbox_border rgba(255,255,255,0.3);
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,0.04);
+  background-color:rgba(0,0,0,.4);
+  height:@Checkbox_size;
+  width:@Checkbox_size;
+  outline: none;
+  display: block;
+  margin: @Checkbox_vertical_margin 0px;
+
+  &[type=radio]{
+    border-radius:50%;
+    &:before{
+      border-radius:50%;
+    }
+  }
+
+  &:after{
+    content: attr(value);
+    margin: @Checkbox_label_vertical_margin @Checkbox_label_horizontal_margin;
+    vertical-align: top;
+    display: inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:@Checkbox_label_font-size;
+    opacity:@Checkbox_label_unchecked_opacity;
+
+  }
+
+  &:checked:after{
+    opacity:@Checkbox_label_checked_opacity;
+  }
+
+  &:checked:before{
+    content:"";
+    background-color:@Checkbox_checked_color;
+    position:absolute;
+    width: (@Checkbox_size - @Checkbox_border * 2) / (100 / @Checkbox_checked_marker_size);
+    height:(@Checkbox_size - @Checkbox_border * 2) / (100 / @Checkbox_checked_marker_size);
+    margin:(@Checkbox_size - @Checkbox_border * 2) / (100 / ((100 - @Checkbox_checked_marker_size)/2));
+  }
+}
+
+
+
+</style>

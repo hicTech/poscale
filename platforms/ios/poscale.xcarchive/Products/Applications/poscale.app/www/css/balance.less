@@ -1,0 +1,399 @@
+/*
+build del css dal less:
+lessc balance.less balance.css
+*/
+
+/* 1 grammo = 0,035274 oz */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,900&display=swap');
+@import "cssglobal/flex";
+
+@size: 350px;
+@num_text_color: #fcb5a7;
+@num_text_weight: 300;
+@num_text_size: 0.7em;
+
+
+@line_width:120px;
+@line_height:1px;
+@line_color: #fb764b;
+
+@bar_color:rgba(218, 139, 125, 0.33);
+@secondary_bar_color: rgba(218, 139, 125, 0.19);
+
+@circle_color:#181922;
+@circle_border:1px solid rgba(218, 139, 125, 0.1);
+  
+body{
+   background:#181c24;
+   font-family: 'Montserrat', sans-serif;
+   color:white;
+   position: fixed;
+   overflow-y: hidden;
+}
+
+.delta_indicator{
+  background-color:blue;
+  border-radius:50%;
+  position:absolute;
+  width:90%;
+  height:90%;
+  top:5%;
+  left:5%;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out;
+  
+}
+
+.container {
+    margin: 20px auto;
+    width: @size;
+    
+  /* iphone 6,6s,7,8 */
+  &.small_iphone{
+    
+    .tachometer{
+      transform: scale(0.95);
+    }
+  }
+    
+  .tachometer{
+    background:@circle_color;
+    margin:10px auto;
+    width:@size;
+    height:@size;
+    border: @circle_border;
+    border-radius: 100%;
+    display: block;
+    position: relative;  
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.3), inset 0px 0px 15px 2px rgba(251, 118, 75, 0.1);
+    
+    .line {
+      background: @line_color;
+      height: 0;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      width: 0;
+      transform-origin: 50% 100%;
+      margin: -@line_width -@line_height 0;
+      padding: @line_width @line_height 0;
+      z-index:2;
+      transform:rotate(-30deg);
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all .2s ease-out;
+      -o-transition: all .2s ease-out;
+      transition: all .2s ease-out;
+      box-shadow: 5px -10px 20px 2px rgba(251, 118, 75, 0.3);
+  
+      &:after{        
+          position: absolute;
+          content: ".";
+          background: @line_color;
+          color: rgba(0, 0, 0, 0);
+          bottom: 167px;
+          left: -1px;
+          width: 4px;
+          height: 10px;
+          box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.35);
+       }
+      
+      &:before{        
+          position: absolute;
+          content: ".";
+          background: @line_color;
+          color: rgba(0, 0, 0, 0);
+          bottom: 90px;
+          left: -4px;
+          width: 11px;
+          height: 11px;
+          border-radius:50%;
+          box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.15);
+       }
+
+    }
+
+    .pin {
+      width: 36px;
+      height: 36px;
+      left:50%;
+      top:50%;
+      margin: -20px 0 0 -20px;
+      background-color: #734b47;
+      border-radius: 50%;
+      position: absolute;
+      z-index: 4;
+      border:solid 3px white;
+      position:relative;
+      
+      &:after{
+            width: 340px;
+            position: absolute;
+            font-size: 0.7em;
+            color: rgba(218, 139, 125, 0.33);
+            font-weight: 300;
+            bottom: -50px;
+            left: -150px;
+            text-align: center;
+      }
+      
+      .delta_indicator{
+              content:".";
+              opacity:0.85;
+              display:block;
+              width: 36px;
+              height: 36px;
+              border:solid 0px white;
+              background-color: rgba(251, 118, 75, 0.7215686274509804);
+              color:#734b47;
+              border-radius: 50%;
+              z-index: 4;
+              position:relative;
+      }
+      
+      
+    }
+  
+    &.gr{
+      
+      .pin:after{
+        content: "gg 33 - 0.5gg";
+      }
+      .bar {
+          position: absolute;
+          width: @size;
+          height: @size;
+          z-index: 2;
+
+          div {
+          position: absolute;
+          width: @size;
+          height: @size;
+          padding:6px;
+          box-sizing: border-box;
+
+          b {
+            position: absolute;
+            display: block;
+            left: 50%;
+            width: 1px;
+            height: 20px;
+            background: @bar_color;
+            margin: 0 0px 0; 
+
+            .num_text{
+              color: yellow;
+              width: 40px;
+              height: 40px;
+              margin: 15px 0px 0px -19px;
+              text-align: center;
+              position: relative;
+              transform: rotate(0deg) !important;
+              &:after{
+                  color:@num_text_color;
+                  font-weight:@num_text_weight;
+              }
+            }
+          }
+        }
+        
+        
+          
+          div:nth-child(even) b {
+            position: absolute;
+            display: block;
+            left: 50%;
+            width: 1px;
+            height: 10px;
+            background: @secondary_bar_color;
+            margin: 0 0px 0;
+            top: 16px;
+          }
+
+          @start:195;
+          @iterations: 0;
+
+          @step_size: 5;
+
+          @steps: 67;
+
+          .loop (@i) when (@i < @steps) {
+              @b:@i+1;
+              @val:round(@i/2);
+              div:nth-child(@{b}) {
+                  transform: rotate(~"calc(@{start}deg + calc( @{step_size}*@{i}deg) )");
+                  b .num_text{
+                    &:after{
+                        content:~"'@{val}'";
+                        color:@num_text_color;
+                        font-size:@num_text_size;
+                    }
+                  }
+              }
+
+              .loop(@i + 1);
+          }
+          .loop (@iterations);
+
+
+
+
+          div:nth-child(even) {     
+            b .num_text{
+              &:after{
+                content:"";
+              }
+            }
+          }
+      }
+    }
+    
+    &.oz{
+      .pin:after{
+        content: "ozs 1.15 - 0.025oz";
+      }
+      .bar {
+          position: absolute;
+          width: @size;
+          height: @size;
+          z-index: 2;
+
+          div {
+          position: absolute;
+          width: @size;
+          height: @size;
+          padding:6px;
+          box-sizing: border-box;
+
+          b {
+            position: absolute;
+            display: block;
+            left: 50%;
+            width: 1px;
+            height: 20px;
+            background: @bar_color;
+            margin: 0 0px 0;
+
+            .num_text{
+              color: yellow;
+              width: 40px;
+              height: 40px;
+              margin: 15px 0px 0px -20px;
+              text-align: center;
+              position: relative;
+              transform: rotate(0deg) !important;
+              &:after{
+                  color:@num_text_color;
+                  font-weight:@num_text_weight;
+              }
+            }
+          }
+        }
+          div.not_oz{
+            display:none;
+          }
+          div:nth-child(even) b {
+            position: absolute;
+            display: block;
+            left: 50%;
+            width: 1px;
+            height: 10px;
+            background: @secondary_bar_color;
+            margin: 0 0px 0;
+            top: 16px;
+          }
+
+          @start:195;
+          @iterations: 0;
+
+          @step_size: 5*1.417476;
+
+          @steps: 47;
+
+          .loop (@i) when (@i < @steps) {
+              @b:@i+1;
+              @val:round((@i/2)*0.05,2);
+              div:nth-child(@{b}) {
+                  transform: rotate(~"calc(@{start}deg + calc( @{step_size}*@{i}deg) )");
+                  b .num_text{
+                    &:after{
+                        content:~"'@{val}'";
+                        color:@num_text_color;
+                        font-size:@num_text_size;
+                    }
+                  }
+              }
+
+              .loop(@i + 1);
+          }
+          .loop (@iterations);
+
+
+
+
+          div:nth-child(even) {     
+            b .num_text{
+              &:after{
+                content:"";
+              }
+            }
+          }
+      }
+    }
+   
+  }
+
+  .options_row{
+    height: 85px;
+    
+    .single_option{
+      padding: 6px 10px;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all .2s ease-out;
+      -o-transition: all .2s ease-out;
+      transition: all .2s ease-out;
+      font-size: .75em;
+
+      &.active{
+        opacity: 1 !important;
+        font-size: 1.35em;
+        color:rgb(251, 118, 75);
+        text-shadow: 0px 0px 15px;
+      }
+    }
+    
+  }
+
+  @place_size: 80px;
+
+  .place_container{
+    position: fixed;
+    top: 700px;
+    left:0px;
+    width: 100%;
+
+    .place{
+      width: 100%;
+      height: @place_size;
+      position: relative;
+
+      .circle_place{
+        width: @place_size;
+        height: @place_size;
+        background-color:@line_color;
+        border-radius: 50%;
+        border: solid 3px;
+        box-shadow: 0px 0px 20px 17px rgba(0,0,0,0.2);
+      
+      }
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,140 @@
+<style rel="stylesheet/less">
+@Toggles-size: 60px;
+@Toggles-icon-on-color: #fff;
+@Toggles-on-color: @green-30;
+@Toggles-off-border-color:@green;
+@Toggles-effect-duration: 0.3s;
+@Toggles-cursor-margin:4px;
+
+@Toggles-background-color:rgba(0,0,0,0.05);
+@Toggles-filter-color:rgba(0,0,0,0.05);
+
+@Toggles-icon-checked :           "●";
+@Toggles-icon-unchecked :         '×';
+
+
+
+.Toggles{
+
+  .Toggles-wrapper{
+    display: table;
+
+    .Toggle{
+      display: table-row;
+
+      .Toggle-input{
+        display: table-cell;
+        width: @Toggles-size;
+
+        input[type="checkbox"],
+        input[type="radio"]{
+          position: absolute;
+          margin-left: -9999px;
+          visibility: hidden;
+
+          & + label {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin-top: 2px;
+            width: @Toggles-size;
+            height: @Toggles-size / 2;
+            background-color: @Toggles-background-color;
+            .toggleBorderRadis(@Toggles-size / 2);
+            -webkit-transition: background @Toggles-effect-duration;
+            -moz-transition: background @Toggles-effect-duration;
+            -o-transition: background @Toggles-effect-duration;
+            transition: background @Toggles-effect-duration;
+          }
+
+          & + label:before,
+          & + label:after {
+            display: block;
+            position: absolute;
+            content: "";
+          }
+          & + label:before {
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            right: 2px;
+            background-color: @Toggles-filter-color;
+            .toggleBorderRadis(@Toggles-size / 2);
+            -webkit-transition: background @Toggles-effect-duration;
+            -moz-transition: background @Toggles-effect-duration;
+            -o-transition: background @Toggles-effect-duration;
+            transition: background @Toggles-effect-duration;
+          }
+          & + label:after {
+            content: @Toggles-icon-unchecked;
+            color: @Toggles-off-border-color;
+            top: @Toggles-cursor-margin;
+            left: @Toggles-cursor-margin;
+            bottom: @Toggles-cursor-margin;
+            width: ( @Toggles-size / 2 ) - ( @Toggles-cursor-margin * 2 );
+            background-color: rgba(0,0,0,0.15);
+            text-align: center;
+            line-height: (@Toggles-size / 2) -  8;
+
+            .toggleBorderRadis(( @Toggles-size / 2 ) - ( @Toggles-cursor-margin / 2 ));
+
+            -webkit-transition: margin @Toggles-effect-duration, background @Toggles-effect-duration;
+            -moz-transition: margin @Toggles-effect-duration, background @Toggles-effect-duration;
+            -o-transition: margin @Toggles-effect-duration, background @Toggles-effect-duration;
+            transition: margin @Toggles-effect-duration, background @Toggles-effect-duration;
+          }
+          &:checked + label {
+            background-color: @Toggles-on-color;
+          }
+          &:checked + label:after {
+            content: @Toggles-icon-checked;
+            margin-left: @Toggles-size / 2;
+            background-color: @Toggles-on-color;
+            color: @Toggles-icon-on-color;
+            text-align: center;
+            line-height: (@Toggles-size / 2) -  8;
+          }
+
+          & + label > div{
+            position: absolute;
+            left: 85px;
+            width: 85px;
+          }
+
+        }
+      }
+
+      .Toggle-label{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+        padding: 0px 0px 0px 10px;
+        font-size: 0.8em;
+        font-weight: 300;
+        line-height: @line-height-base;
+
+      }
+    }
+  }
+
+}
+
+
+
+
+.toggleBorderRadis (@r) {
+  -webkit-border-radius:@r;
+  -moz-border-radius:@r;
+  -ms-border-radius:@r;
+  -o-border-radius:@r;
+  border-radius:@r;
+}
+
+
+
+</style>

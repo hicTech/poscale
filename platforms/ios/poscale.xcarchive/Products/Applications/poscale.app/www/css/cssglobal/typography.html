@@ -1,0 +1,183 @@
+<style rel="stylesheet/less">
+
+/* typography.less */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,200,200i,300,400,500,600,700');
+
+
+
+@Font-family-base:            'Roboto', sans-serif;
+@Font-size-base:              1em;    /* 16px  1px = 0.063em   */
+@Font-weight:                 300;
+
+@text-color:                  @t-color;
+@body-bg:                     @bg-color;
+@line-height-base:            1.428571429;
+@line-height-computed:        floor((@Font-size-base * @line-height-base));
+
+@link-color:                  #0275d8;
+@link-hover-color:            #373a3c;
+@link-hover-decoration:       underline;
+
+@Font-size-h1:                floor((@Font-size-base * 2.1));
+@Font-size-h2:                floor((@Font-size-base * 1.7));
+@Font-size-h3:                floor((@Font-size-base * 1.25));
+@Font-size-h4:                floor((@Font-size-base * 1.1));
+@Font-size-h5:                @Font-size-base;
+@Font-size-h6:                floor((@Font-size-base * 0.9));
+
+@headings-font-family:        inherit;
+@headings-font-weight:        500;
+@headings-line-height:        1.1;
+@headings-color:              iherit;
+@headings-small-color:        @t-color;
+
+/*--------------------------------------------------------------------------- html and body ---------------- */
+html {
+  font-size: @Font-size-base;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-weight: @Font-weight;
+}
+
+body{
+  font-family: @Font-family-base;
+  font-size: @Font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+/*----------------------------------------------- links ---------------- */
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  &:hover,&:focus {
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+  }
+}
+
+
+
+/*----------------------------------------------- headers and paragraph ---------------- */
+h1, .h1 { font-size: @Font-size-h1; }
+h2, .h2 { font-size: @Font-size-h2; }
+h3, .h3 { font-size: @Font-size-h3; }
+h4, .h4 { font-size: @Font-size-h4; }
+h5, .h5 { font-size: @Font-size-h5; }
+h6, .h6 { font-size: @Font-size-h6; }
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+}
+
+small,.small {
+  font-weight: normal;
+  line-height: @line-height-base;
+  color: @headings-small-color;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 60%;
+    display: block;
+    line-height: @headings-line-height;
+  }
+}
+
+
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  small,
+  .small {
+    font-size:75%;
+  }
+}
+
+p {
+  margin: 0 0 (@line-height-computed / 2);
+}
+
+
+
+/*----------------------------------------------- lists ---------------- */
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  .list-unstyled();
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+
+/*----------------------------------------------- Description lists ---------------- */
+dl {
+  margin-top: 0;
+  margin-bottom: @line-height-computed;
+}
+dt,
+dd {
+  line-height: @line-height-base;
+}
+dt {
+  font-weight: bold;
+  margin-top: 5px;
+}
+dd {
+  margin-left: 0;
+}
+
+
+
+/*----------------------------------------------- figures and images ---------------- */
+figure {
+  margin: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+
+</style>

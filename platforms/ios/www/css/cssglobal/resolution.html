@@ -1,0 +1,142 @@
+<style rel="stylesheet/less">
+/* resolutionChecker.less */
+@resolutionChecker-visibility:  none;
+@resolutionChecker-color:       red;
+@resolutionChecker-font-size:   11px;
+@resolutionChecker-left:        15px;
+@resolutionChecker-bottom:      5px;
+@resolutionChecker-top:         5px;
+@resolutionChecker-right:       15px;
+@resolutionChecker-position:    b-r; /* t-l | t-r | b-r | b-l */
+
+
+
+body{
+
+  .resolutionCheckerSterter(@resolutionChecker-position);
+
+}
+
+
+.resolutionCheckerSterter(@where) when (@where = b-l){
+
+  &:after,
+  &:before{
+    left: @resolutionChecker-left;
+  }
+  &:after{
+    bottom: @resolutionChecker-bottom + @resolutionChecker-font-size;
+  }
+
+  &:before{
+    bottom: @resolutionChecker-bottom;
+  }
+
+}
+
+.resolutionCheckerSterter(@where) when (@where = t-l){
+
+  &:after,
+  &:before{
+    left: @resolutionChecker-left;
+  }
+  &:after{
+    top: @resolutionChecker-top + @resolutionChecker-font-size;
+  }
+
+  &:before{
+    top: @resolutionChecker-top;
+  }
+
+}
+
+.resolutionCheckerSterter(@where) when (@where = t-r){
+
+  &:after,
+  &:before{
+    right: @resolutionChecker-right;
+  }
+  &:after{
+    top: @resolutionChecker-top + @resolutionChecker-font-size;
+  }
+
+  &:before{
+    top: @resolutionChecker-top;
+  }
+
+}
+
+.resolutionCheckerSterter(@where) when (@where = b-r){
+
+  &:after,
+  &:before{
+    right: @resolutionChecker-right;
+  }
+  &:after{
+    bottom: @resolutionChecker-bottom + @resolutionChecker-font-size;
+  }
+
+  &:before{
+    bottom: @resolutionChecker-bottom;
+  }
+
+}
+
+
+
+
+
+
+
+body:after,
+body:before{
+  display: @resolutionChecker-visibility ;
+  position: fixed;
+  z-index: 99999999999;
+  font-size: @resolutionChecker-font-size;
+  color: @resolutionChecker-color;
+}
+
+body:after {
+
+
+  @media @onlyScreen and @smallmobile {
+    content: "@smallmobile";
+  }
+
+  @media @onlyScreen and @mobile {
+    content: "@mobile";
+  }
+
+  @media @onlyScreen and @tablet {
+    content: "@tablet";
+  }
+
+  @media @onlyScreen and @notebook {
+    content: "@notebook";
+  }
+
+  @media @onlyScreen and @desktop {
+    content: "@desktop";
+  }
+
+  @media @onlyScreen and @wide {
+    content: "@wide";
+  }
+}
+
+body:before {
+
+
+  @media @portrait {
+    content: "@portrait";
+  }
+
+  @media @landscape {
+    content: "@landscape";
+  }
+}
+
+
+
+</style>
