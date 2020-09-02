@@ -20,14 +20,19 @@ function onDeviceReady() {
     var $x = $("#x");
     var $y = $("#y");
     var $model = $("#model");
+    var $group = $("#group");
     var $line = $(".line");
 
     startWatch();
     bindClick();
-    setModel($model);
+    setModel($model, $group);
     disallowOverscroll();
 
+    // disattivo la statusbar
     StatusBar.hide();
+
+    // impedisco lo spegnimento del monitor
+    window.plugins.insomnia.keepAwake();
     
     /* bolla */
     setInterval(function(){
@@ -53,7 +58,7 @@ function onDeviceReady() {
         //con questo metto la lancetta a zero considerando y_initial
         y_avg = y_avg + config.y_initial + 0.08; // questo 0.08 è per azzerare una leggere discrepanza per cui quando la bolla è perfettamente centrata l'indicatore arancione sul perimetro non è perfettammente al centro della tacca dello zero
 
-        $y.html(y_avg);
+        //$y.html(y_avg);
         y_values = [];
         
         rotate($line,y_avg);
@@ -108,7 +113,8 @@ function bindClick(){
 
 }
 /*
-                            pollici	dims	    res	        device.model
+
+    DEVICES TABLE           pollici	dims	    res	        device.model
 
     -----------------------------group_a-----------------------------------                            
     iphone 11	            6.1	    75-150-8.3	414x896	    12,1
@@ -131,26 +137,30 @@ function bindClick(){
     iphone 6s plus	        5.5	    78-158	    414x736	    8,2
     iphone 6s 	            4.7	    67-138	    414x736	    8,1
 
-
-    in base al modello appioppo al body la class di appartenenza "group_a","group_b","group_c","group_d"
-    questa classe server per customizzare l'UI dell'app e per selezionare il set di taratura
+    in base al modello appioppo al body la class di appartenenza 
+    "group_a","group_b","group_c","group_d" questa classe server 
+    per customizzare l'UI dell'app e per selezionare il set di taratura
 */
 
 
-function setModel($elem){
+function setModel($elem,$group){
 
     // setto la classe al body
     if( device.model == "iPhone12,1" || device.model == "iPhone11,8" || device.model == "iPhone12,5" || device.model == "iPhone11,4" || device.model == "iPhone11,6" ){
         $("body").addClass("group_a");
+        $group.html("group_a");
     }
     if( device.model == "iPhone12,3" || device.model == "iPhone13" || device.model == "iPhone10,6" || device.model == "iPhone11,2"){
         $("body").addClass("group_b");
+        $group.html("group_b");
     }
     if( device.model == "iPhone10,1" || device.model == "iPhone10,4" || device.model == "iPhone9,1" || device.model == "iPhone9,3" ){
         $("body").addClass("group_c");
+        $group.html("group_c");
     }
     if( device.model == "iPhone10,2" || device.model == "iPhone10,5" || device.model == "iPhone9,2" || device.model == "iPhone9,4" || device.model == "iPhone8,2" || device.model == "iPhone8,1" ){
         $("body").addClass("group_d");
+        $group.html("group_d");
     }
 
     // printo il nome del modello

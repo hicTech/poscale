@@ -26,7 +26,7 @@ lessc balance.less balance.css
 
 @place_size: 65px;
 
-
+/* vedi DEVICES TABLE */
 @place_top_group_a: 740px;
 @place_top_group_b: 685px;
 @place_top_group_c: 575px;
@@ -101,7 +101,17 @@ body{
               box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.35);
           }
           
-          &:before{        
+          &:before{   
+              position: absolute;
+              content: ".";
+              background: #fb764b;
+              color: rgba(0, 0, 0, 0);
+              bottom: 120px;
+              left: -1px;
+              width: 4px;
+              height: 47px;
+              opacity: 0.2;
+              /*    pallino sulla lancetta
               position: absolute;
               content: ".";
               background: @line_color;
@@ -112,6 +122,21 @@ body{
               height: 11px;
               border-radius:50%;
               box-shadow: 0px 0px 15px 2px rgba(251, 118, 75, 0.15);
+              */
+          }
+
+          .exact_value{
+            position: absolute;
+            color: #181922;
+            right: -17px;
+            bottom: 80px;
+            background-color: #fb764b;
+            padding: 4px 0px;
+            width: 35px;
+            text-align: center;
+            font-size: 0.95em;
+            font-weight: 700;
+            border-radius: 6px;
           }
 
         }

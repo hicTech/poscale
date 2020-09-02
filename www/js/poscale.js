@@ -28,7 +28,11 @@ function onDeviceReady() {
     setModel($model, $group);
     disallowOverscroll();
 
+    // disattivo la statusbar
     StatusBar.hide();
+
+    // impedisco lo spegnimento del monitor
+    window.plugins.insomnia.keepAwake();
     
     /* bolla */
     setInterval(function(){
@@ -54,7 +58,7 @@ function onDeviceReady() {
         //con questo metto la lancetta a zero considerando y_initial
         y_avg = y_avg + config.y_initial + 0.08; // questo 0.08 è per azzerare una leggere discrepanza per cui quando la bolla è perfettamente centrata l'indicatore arancione sul perimetro non è perfettammente al centro della tacca dello zero
 
-        $y.html(y_avg);
+        //$y.html(y_avg);
         y_values = [];
         
         rotate($line,y_avg);
