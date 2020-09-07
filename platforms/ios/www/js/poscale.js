@@ -148,19 +148,19 @@ function setModel($elem,$group){
     // setto la classe al body
     if( device.model == "iPhone12,1" || device.model == "iPhone11,8" || device.model == "iPhone12,5" || device.model == "iPhone11,4" || device.model == "iPhone11,6" ){
         $("body").addClass("group_a");
-        $group.html("group_a");
+        //$group.html("group_a");
     }
     if( device.model == "iPhone12,3" || device.model == "iPhone13" || device.model == "iPhone10,6" || device.model == "iPhone11,2"){
         $("body").addClass("group_b");
-        $group.html("group_b");
+        //$group.html("group_b");
     }
     if( device.model == "iPhone10,1" || device.model == "iPhone10,4" || device.model == "iPhone9,1" || device.model == "iPhone9,3" ){
         $("body").addClass("group_c");
-        $group.html("group_c");
+        //$group.html("group_c");
     }
     if( device.model == "iPhone10,2" || device.model == "iPhone10,5" || device.model == "iPhone9,2" || device.model == "iPhone9,4" || device.model == "iPhone8,2" || device.model == "iPhone8,1" ){
         $("body").addClass("group_d");
-        $group.html("group_d");
+        //$group.html("group_d");
     }
 
     // printo il nome del modello

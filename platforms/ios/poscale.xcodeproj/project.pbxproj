@@ -15,6 +15,10 @@
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		43B0EE894B25482F9ADD1185 /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6C157ED2E147A18665C7F9 /* CDVAccelerometer.m */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+		77E9DC1824FFFBB3004013AF /* t.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E9DC1724FFFBB3004013AF /* t.storyboard */; };
+		77E9DC1E2500ED45004013AF /* splash@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E9DC1B2500ED44004013AF /* splash@2.png */; };
+		77E9DC1F2500ED45004013AF /* splash@1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E9DC1C2500ED45004013AF /* splash@1.png */; };
+		77E9DC202500ED45004013AF /* splash@3.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E9DC1D2500ED45004013AF /* splash@3.png */; };
 		AEE1CE2D9DD741069E20B9BD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3751345B9D040E39F04F6BC /* CoreMotion.framework */; };
 		DD4BB1BAFA9C496A9C69EAB7 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E994D2898E034785B8AD1D8C /* CDVStatusBar.m */; };
 		DE1BAE303CE74C7D85C7C283 /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = C597FBFCBD1F4C02BC34B76A /* Insomnia.m */; };
@@ -66,6 +70,10 @@
 		4B6C157ED2E147A18665C7F9 /* CDVAccelerometer.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVAccelerometer.m; path = "cordova-plugin-device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; };
 		63743C2B1BC340399DF263A8 /* CDVAccelerometer.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVAccelerometer.h; path = "cordova-plugin-device-motion/CDVAccelerometer.h"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = poscale/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		77E9DC1724FFFBB3004013AF /* t.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = t.storyboard; sourceTree = "<group>"; };
+		77E9DC1B2500ED44004013AF /* splash@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2.png"; sourceTree = "<group>"; };
+		77E9DC1C2500ED45004013AF /* splash@1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@1.png"; sourceTree = "<group>"; };
+		77E9DC1D2500ED45004013AF /* splash@3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@3.png"; sourceTree = "<group>"; };
 		7BCF40C2B22249C08B5BE930 /* CDVStatusBar.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* poscale-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "poscale-Info.plist"; path = "poscale/poscale-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
 		A3751345B9D040E39F04F6BC /* CoreMotion.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -114,6 +122,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				77E9DC1724FFFBB3004013AF /* t.storyboard */,
 				EB87FDF41871DAF40020F90C /* config.xml */,
 				EB87FDF31871DA8E0020F90C /* www */,
 				EB87FDF11871DA420020F90C /* Staging */,
@@ -143,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				0207DA571B56EA530066E2B4 /* Images.xcassets */,
+				77E9DC1A2500E8D9004013AF /* splash */,
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* poscale-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
@@ -193,6 +203,16 @@
 			name = Plugins;
 			path = poscale/Plugins;
 			sourceTree = SOURCE_ROOT;
+		};
+		77E9DC1A2500E8D9004013AF /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				77E9DC1C2500ED45004013AF /* splash@1.png */,
+				77E9DC1B2500ED44004013AF /* splash@2.png */,
+				77E9DC1D2500ED45004013AF /* splash@3.png */,
+			);
+			name = splash;
+			sourceTree = "<group>";
 		};
 		EB87FDF11871DA420020F90C /* Staging */ = {
 			isa = PBXGroup;
@@ -285,7 +305,11 @@
 			files = (
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
+				77E9DC1824FFFBB3004013AF /* t.storyboard in Resources */,
+				77E9DC1F2500ED45004013AF /* splash@1.png in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				77E9DC1E2500ED45004013AF /* splash@2.png in Resources */,
+				77E9DC202500ED45004013AF /* splash@3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

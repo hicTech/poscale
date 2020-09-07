@@ -39,7 +39,9 @@ body{
    position: fixed;
    overflow-y: hidden;
 
-
+    a{
+      color: #fb764b;
+    }
     .delta_indicator{
       background-color:blue;
       border-radius:50%;
@@ -62,7 +64,7 @@ body{
         
       .tachometer{
         background:@circle_color;
-        margin:10px auto;
+        margin:10px auto 20px;
         width:@size;
         height:@size;
         border: @circle_border;
@@ -137,6 +139,11 @@ body{
             font-size: 0.95em;
             font-weight: 700;
             border-radius: 6px;
+
+            &.in_bolla{
+              background-color: #57e85d;
+              box-shadow: 0px 0px 20px 10px rgba(87,232,93, 0.25);
+            }
           }
 
         }
@@ -371,6 +378,13 @@ body{
       
       }
 
+      .iphone_model_row{
+        height: 30px;
+        text-align: center;
+        text-transform: none;
+        color: #fb764b;
+      }
+
       .options_row{
         height: 85px;
         
@@ -390,6 +404,16 @@ body{
           }
         }
         
+      }
+
+      .hints_row{
+        height: 200px;
+        text-transform: initial;
+
+        ol{
+          width: 80%;
+          font-size:0.85em;
+        }
       }
 
     }
@@ -434,7 +458,7 @@ body{
           background-color:@line_color;
           border-radius: 50%;
           border: solid 3px;
-          box-shadow: 0px 0px 20px 17px rgba(0,0,0,0.2);
+          box-shadow: 0px 0px 10px 7px rgba(0,0,0,0.2);
         
         }
       }

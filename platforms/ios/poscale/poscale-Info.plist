@@ -30,9 +30,9 @@
 		<true/>
 	</dict>
 	<key>NSMainNibFile~ipad</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
-	<string>CDVLaunchScreen</string>
+	<string>t</string>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
