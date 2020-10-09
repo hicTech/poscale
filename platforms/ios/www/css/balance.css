@@ -740,13 +740,13 @@ body .container .tachometer .line:before {
 body .container .tachometer .line .exact_value {
   position: absolute;
   color: #181922;
-  right: -17px;
+  right: -25px;
   bottom: 80px;
   background-color: #fb764b;
   padding: 4px 0px;
-  width: 35px;
+  width: 55px;
   text-align: center;
-  font-size: 0.95em;
+  font-size: 1.25em;
   font-weight: 700;
   border-radius: 6px;
 }

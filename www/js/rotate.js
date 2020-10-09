@@ -16,7 +16,7 @@ function rotate($line,val){
         // il rapporto num/grammi è 6,5901 calcolato come rapporto medio ottenuto dalla taratura
         // ho individuato questi due scaloni che rettificano ulteriormente il rapporto
         if(num <= 85)
-            ratio = 6.7;
+            ratio = 6.65;
         if(num > 85)
             ratio = 6.85;
               
