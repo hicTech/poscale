@@ -108,35 +108,7 @@ function bindClick(){
     })
 
 }
-/*
 
-    DEVICES TABLE           pollici	dims	    res	        device.model
-
-    -----------------------------group_a-----------------------------------                            
-    iphone 11	            6.1	    75-150-8.3	414x896	    12,1
-    iphone XR	            6.1	    75-150-8.3	414x896	    11,8
-    iphone 11 Pro max	    6.5	    77-158-8.1	414x896	    12,5
-    iphone XS max	        6.5	    77-157	    414x896	    11,4 - 11,6
-
-    -----------------------------group_b-----------------------------------
-    iphone 11 Pro	        5.8	    71-144-8.1	375x812	    12,3
-    iphone X	            5.8	    71-143-7.7	375x812	    10,3 - 10,6
-    iphone XS	            5.8	    71-143	    375x812	    11,2
-
-    -----------------------------group_c-----------------------------------
-    iphone 8	            4.7	    67-138-7.3	375x667	    10,1 - 10,4
-    iphone 7	            4.7	    67-138	    375x667	    9,1 - 9,3
-
-    -----------------------------group_d-----------------------------------
-    iphone 8plus	        5.5	    78-158	    414x736	    10,2 - 10,5
-    iphone 7 plus	        5.5	    78-158	    414x736	    9,2 - 9,4
-    iphone 6s plus	        5.5	    78-158	    414x736	    8,2
-    iphone 6s 	            4.7	    67-138	    414x736	    8,1
-
-    in base al modello appioppo al body la class di appartenenza 
-    "group_a","group_b","group_c","group_d" questa classe server 
-    per customizzare l'UI dell'app e per selezionare il set di taratura
-*/
 
 
 function setModel($model,$group){
@@ -206,7 +178,7 @@ function getPhoneInfo(val) {
             case "iPhone11,8":                              return { name:"iPhone XR", group: "group_b"}
             case "iPhone12,1":                              return { name:"iPhone 11", group: "group_b"}
 
-    		/* group_c */
+            /* group_c */
             case "iPhone13,2":                              return { name:"iPhone 12", group: "group_c"}
             case "iPhone13,3":                              return { name:"iPhone 12 Pro", group: "group_c"}
 
@@ -272,5 +244,5 @@ function getPhoneInfo(val) {
 
 }
 
-console.log(theTest("iPhone10,5"));
+
   

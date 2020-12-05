@@ -1842,7 +1842,7 @@ body.group_a .place_container {
   top: 740px;
 }
 body.group_b .place_container {
-  top: 685px;
+  top: 740px;
 }
 body.group_c .place_container {
   top: 575px;
@@ -1862,9 +1862,6 @@ body .place_container {
 }
 body .place_container.active {
   opacity: 1 !important;
-}
-body .place_container.active .circle_place {
-  box-shadow: 0px 0px 17px 7px rgba(251, 118, 7, 0.3) !important;
 }
 body .place_container.active span {
   opacity: 1 !important;
