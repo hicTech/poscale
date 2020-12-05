@@ -9,6 +9,8 @@ function rotate($line,val){
     var num = val * 100;
     var ratio = 6.5901;
 
+
+
     
 
 
@@ -16,10 +18,10 @@ function rotate($line,val){
     // 11, XR
     if(current_group == "group_b"){
         console.log("we:"+num);
-        if(num < 50)
-            gain = 145;
+        if(num < 65)
+            ratio = 6.16;
         else
-            gain = 13
+            ratio = 6.1;
     }
 
 
@@ -38,7 +40,19 @@ function rotate($line,val){
     
     
 
-    if(exact_value > -0.15 && exact_value < 0.15){
+    $(".bottom_indicator").removeClass("active");
+    $(".top_indicator").removeClass("active");
+
+
+    if( exact_value > 0.15 && exact_value < 2.5){
+        $(".bottom_indicator").addClass("active")
+    }
+
+    if( exact_value < -0.15 && exact_value > -2.5){
+        $(".top_indicator").addClass("active")
+    }
+
+    if(exact_value >= -0.15 && exact_value <= 0.15){
         $(".exact_value").addClass("in_bolla");
         $(".place_container").addClass("active");
     }
