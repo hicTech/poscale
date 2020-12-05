@@ -56,12 +56,15 @@ function rotate($line,val){
     $("#exact_value").css({'transform' : 'rotate('+ degrees * (-1) +'deg)'});
     $("#exact_value").html( exact_value );
     
+    
 
     if(exact_value > -0.15 && exact_value < 0.15){
         $(".exact_value").addClass("in_bolla");
+        $(".place_container").addClass("active");
     }
     else{
         $(".exact_value").removeClass("in_bolla");
+        $(".place_container").removeClass("active");
     }
 
 
@@ -70,5 +73,6 @@ function rotate($line,val){
     $("#deg").html(deg_decrement);
     
 
+    
     
 }

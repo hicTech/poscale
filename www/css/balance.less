@@ -1,6 +1,6 @@
 /*
 build del css dal less:
-lessc balance.less balance.css
+dalla directory www/css/ lancia lessc balance.less balance.css
 */
 
 /* 1 grammo = 0,035274 oz */
@@ -446,6 +446,24 @@ body{
       position: fixed;
       left:0px;
       width: 100%;
+      -webkit-transition: all 150ms ease-out;
+      -moz-transition: all 150ms ease-out;
+      -o-transition: all 150ms ease-out;
+      transition: all 150ms ease-out;
+      
+      opacity: 0.25;
+
+      &.active{
+        opacity: 1 !important;
+
+        .circle_place{
+          //box-shadow: 0px 0px 17px 7px rgba(251,118,7,0.3) !important;
+        }
+        span{
+          opacity: 1 !important;
+        }
+      }
+      
 
       .place{
         width: 100%;
@@ -459,6 +477,15 @@ body{
           border-radius: 50%;
           border: solid 3px;
           box-shadow: 0px 0px 10px 7px rgba(0,0,0,0.2);
+          position: relative;
+
+          span{
+            position: absolute;
+            top: 25px;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+          }
         
         }
       }

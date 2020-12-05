@@ -1,0 +1,9 @@
+-- Cordova --
+La webapp che trovi in www è quella su cui lavorare.
+Per sviluppo puoi visualizzarla su http://localhost:8888/poscale/www/
+Col comando:
+cordova prepare ios
+viene fatto il build, a partire da questa web app, nella cartella platforms/ios
+
+-- Build del css --
+Dalla directory www/css/ lancia lessc balance.less balance.css
