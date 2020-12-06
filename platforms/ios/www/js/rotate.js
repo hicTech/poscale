@@ -17,12 +17,47 @@ function rotate($line,val){
     // group_b
     // 11, XR
     if(current_group == "group_b"){
-        console.log("we:"+num);
-        if(num < 65)
-            ratio = 6.16;
-        else
-            ratio = 6.1;
+        
+        if(num <= 40){
+            ratio = 6.75;
+        }
+        
+        if(num > 40 && num <= 60){
+            ratio = 6.615;
+        }
+        
+        if(num > 60 && num <= 80){
+            ratio = 6.7;
+        }
+        
+        if(num > 80 && num <= 100){
+            ratio = 6.42;
+        }
+        
+        if(num > 100 && num <= 120){
+            ratio = 6.5;
+        }
+        
+        if(num > 120 && num <= 140){
+            ratio = 6.19;
+        }
+
+        if(num > 140 && num <= 160){
+            ratio = 6.22;
+        }
+
+        if(num > 160 && num <= 180){
+            ratio = 6.08;
+        }
+        if(num > 180){
+            ratio = 6.185;
+        }
+            
     }
+
+    console.log("num: "+num+" ratio: "+ratio);
+
+    
 
 
 
@@ -42,15 +77,34 @@ function rotate($line,val){
 
     $(".bottom_indicator").removeClass("active");
     $(".top_indicator").removeClass("active");
+    $(".bottom_indicator").removeClass("green");
+    $(".top_indicator").removeClass("green");
 
 
-    if( exact_value > 0.15 && exact_value < 2.5){
-        $(".bottom_indicator").addClass("active")
+    if( exact_value >= 0 && exact_value < 2.5){
+        if( exact_value > 0.15 && exact_value < 2.5){
+            $(".bottom_indicator").addClass("active");
+        }
+        if( exact_value > 0.05 && exact_value <= 0.15){
+            $(".bottom_indicator").addClass("active");
+            $(".bottom_indicator").addClass("green");
+        }
     }
 
-    if( exact_value < -0.15 && exact_value > -2.5){
-        $(".top_indicator").addClass("active")
+    if( exact_value < 0 && exact_value > -2.5){
+        if( exact_value < -0.15 && exact_value > -2.5){
+            $(".top_indicator").addClass("active");
+        }
+        if( exact_value < -0.05 && exact_value >= -0.15){
+            $(".top_indicator").addClass("active");
+            $(".top_indicator").addClass("green");
+        }
     }
+
+
+
+
+
 
     if(exact_value >= -0.15 && exact_value <= 0.15){
         $(".exact_value").addClass("in_bolla");
