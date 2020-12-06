@@ -17,7 +17,7 @@
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-device-motion": "^2.0.1",
     "cordova-plugin-fastclick": "^1.0.0",
-    "cordova-plugin-insomnia": "^4.3.0",
+    "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-taptic-engine": "^2.2.0",
     "cordova-plugin-vibration": "^3.1.1",

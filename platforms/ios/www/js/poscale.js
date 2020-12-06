@@ -17,6 +17,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 
+    window.plugins.insomnia.keepAwake();
 
     var $delta_indicator = $(".delta_indicator");
     var $x = $("#x");

@@ -2086,3 +2086,48 @@ body .bounce_up {
     transform: translateY(15px);
   }
 }
+body .flash {
+  animation: flash 0.3s;
+  -webkit-animation: flash 0.3s;
+}
+@-webkit-keyframes flash {
+  0% {
+    box-shadow: inset 0px 0px 0px 2px rgba(251, 118, 75, 0.1);
+  }
+  20% {
+    box-shadow: inset 0px 0px 125px 75px rgba(251, 118, 75, 0.25);
+  }
+  100% {
+    box-shadow: inset 0px 0px 250px 150px rgba(251, 118, 75, 0), 0px 10px 20px rgba(0, 0, 0, 0.3), inset 0px 0px 10px 2px rgba(251, 118, 75, 0.1);
+  }
+}
+body .littleFlash {
+  animation: littleFlash 0.3s;
+  -webkit-animation: littleFlash 0.3s;
+}
+@-webkit-keyframes littleFlash {
+  0% {
+    box-shadow: inset 0px 0px 0px 2px rgba(251, 118, 75, 0.1);
+  }
+  20% {
+    box-shadow: inset 0px 0px 50px 30px rgba(251, 118, 75, 0.25);
+  }
+  100% {
+    box-shadow: inset 0px 0px 100px 60px rgba(251, 118, 75, 0), 0px 10px 20px rgba(0, 0, 0, 0.3), inset 0px 0px 10px 2px rgba(251, 118, 75, 0.1);
+  }
+}
+body .tinyFlash {
+  animation: tinyFlash 0.3s;
+  -webkit-animation: tinyFlash 0.3s;
+}
+@-webkit-keyframes tinyFlash {
+  0% {
+    box-shadow: inset 0px 0px 0px 2px rgba(251, 118, 75, 0.1);
+  }
+  20% {
+    box-shadow: inset 0px 0px 40px 20px rgba(251, 118, 75, 0.15);
+  }
+  100% {
+    box-shadow: inset 0px 0px 80px 40px rgba(251, 118, 75, 0), 0px 10px 20px rgba(0, 0, 0, 0.3), inset 0px 0px 10px 2px rgba(251, 118, 75, 0.1);
+  }
+}

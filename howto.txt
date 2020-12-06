@@ -6,4 +6,5 @@ cordova prepare ios
 viene fatto il build, a partire da questa web app, nella cartella platforms/ios
 
 -- Build del css --
-Dalla directory www/css/ lancia lessc balance.less balance.css
+Dalla directory www/css/ lancia:
+lessc balance.less balance.css

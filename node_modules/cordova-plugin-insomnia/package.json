@@ -1,27 +1,24 @@
 {
-  "_from": "cordova-plugin-insomnia",
+  "_from": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
   "_id": "cordova-plugin-insomnia@4.3.0",
   "_inBundle": false,
-  "_integrity": "sha1-gyoz9tdj8LgCc733YbNbZ4xDuVc=",
+  "_integrity": "",
   "_location": "/cordova-plugin-insomnia",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "cordova-plugin-insomnia",
-    "name": "cordova-plugin-insomnia",
-    "escapedName": "cordova-plugin-insomnia",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
+    "type": "git",
+    "raw": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
+    "rawSpec": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
+    "saveSpec": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
+    "fetchSpec": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
     "#DEV:/",
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-insomnia/-/cordova-plugin-insomnia-4.3.0.tgz",
-  "_shasum": "832a33f6d763f0b80273bdf761b35b678c43b957",
-  "_spec": "cordova-plugin-insomnia",
+  "_resolved": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git#f83de3ac8ff1bd9ce48652091e8d183c6dcb9e06",
+  "_spec": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
   "_where": "/Applications/MAMP/htdocs/poscale",
   "author": {
     "name": "Eddy Verbruggen",
