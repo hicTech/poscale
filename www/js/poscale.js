@@ -10,12 +10,14 @@ var config = {
     y_delta_gain: 25,                   // fattore moltiplicativo dello spostamento verticale dell'indicatore di bolla
     y_initial: 0.8,                       // scostamento iniziale rispetto all'orrizzontale
     
-    measure_frequency:1200,             // ogni quanto viene fatta la media sui valori e dato il peso
+    measure_frequency:1600,             // ogni quanto viene fatta la media sui valori e dato il peso
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+
+
     var $delta_indicator = $(".delta_indicator");
     var $x = $("#x");
     var $y = $("#y");

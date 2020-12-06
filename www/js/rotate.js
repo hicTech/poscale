@@ -101,6 +101,60 @@ function rotate($line,val){
         }
     }
 
+    
+    if(exact_value >1.2 && exact_value <=1.9){
+        
+        TapticEngine.unofficial.burst();
+        setTimeout(function(){      
+            TapticEngine.unofficial.burst();
+        },500)
+    
+    }
+
+    if(exact_value >0.8 && exact_value <=1.2){
+        
+        TapticEngine.unofficial.burst();
+        //TapticEngine.unofficial.weakBoom();
+        //TapticEngine.unofficial.strongBoom();
+
+        //TapticEngine.impact({
+            //style: "heavy" // light | medium | heavy | rigid (iOS 13+) | soft (iOS 13+)
+          //});
+
+      
+
+}
+
+    if(exact_value >0.25 && exact_value <=0.8){
+        
+        //TapticEngine.unofficial.burst();
+        //TapticEngine.unofficial.weakBoom();
+        TapticEngine.unofficial.strongBoom();
+
+        //TapticEngine.impact({
+            //style: "heavy" // light | medium | heavy | rigid (iOS 13+) | soft (iOS 13+)
+          //});
+
+      
+
+    }
+
+    if(exact_value >0.02 && exact_value <=0.25){
+        
+        //TapticEngine.unofficial.burst();
+        //TapticEngine.unofficial.weakBoom();
+        
+        //TapticEngine.unofficial.strongBoom();
+        console.log("tap")
+        TapticEngine.impact({
+            style: "heavy" // light | medium | heavy | rigid (iOS 13+) | soft (iOS 13+)
+          });
+
+      
+
+    }
+    
+
 
 
 

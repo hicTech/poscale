@@ -24,6 +24,12 @@
     },
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.hictech.poscale"
+    },
+    "cordova-plugin-taptic-engine": {
+      "PACKAGE_NAME": "com.hictech.poscale"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.hictech.poscale"
     }
   },
   "dependent_plugins": {}

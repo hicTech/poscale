@@ -31,6 +31,14 @@
             {
               "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"TapticEngine\"><param name=\"ios-package\" value=\"TapticEngine\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -54,6 +62,12 @@
       "PACKAGE_NAME": "com.hictech.poscale"
     },
     "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.hictech.poscale"
+    },
+    "cordova-plugin-taptic-engine": {
+      "PACKAGE_NAME": "com.hictech.poscale"
+    },
+    "cordova-plugin-vibration": {
       "PACKAGE_NAME": "com.hictech.poscale"
     }
   },
@@ -112,6 +126,22 @@
       "clobbers": [
         "window.StatusBar"
       ]
+    },
+    {
+      "id": "cordova-plugin-taptic-engine.TapticEngine",
+      "file": "plugins/cordova-plugin-taptic-engine/www/TapticEngine.js",
+      "pluginId": "cordova-plugin-taptic-engine",
+      "clobbers": [
+        "TapticEngine"
+      ]
+    },
+    {
+      "id": "cordova-plugin-vibration.notification",
+      "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+      "pluginId": "cordova-plugin-vibration",
+      "merges": [
+        "navigator"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -120,6 +150,8 @@
     "cordova-plugin-device-motion": "2.0.1",
     "cordova-plugin-fastclick": "1.0.0",
     "cordova-plugin-insomnia": "4.3.0",
-    "cordova-plugin-statusbar": "2.4.3"
+    "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-taptic-engine": "2.2.0",
+    "cordova-plugin-vibration": "3.1.1"
   }
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>Taptic Engine</title>
+</head>
+<body>
+<div class="app">
+  <h1>Taptic Engine</h1>
+  <div id="deviceready" class="blink">
+    <p class="event listening">Connecting to Device</p>
+    <p class="event received">Device is Ready</p>
+
+    <button ontouchstart="vibrate()">vibrate</button><br/><br/>
+    <button ontouchstart="vibrate2()">vibrate2</button><br/><br/>
+    <button ontouchstart="vibrate3()">vibrate3</button><br/><br/>
+    <button ontouchstart="vibrate4()">vibrate4</button><br/><br/>
+
+    <h2>Unofficial API (iPhone >= 6s)</h2>
+    <button ontouchstart="weakBoom()">weak boom ('Peek')</button><br/><br/>
+    <button ontouchstart="strongBoom()">strong boom ('Pop')</button><br/><br/>
+    <button ontouchstart="burst()">burst ('Nope!')</button><br/><br/>
+
+    <h2>Official API (iPhone >= 7)</h2>
+    <button ontouchstart="notification('error')">notification</button><br/><br/>
+    <button ontouchstart="selection()">selection</button><br/><br/>
+    <button ontouchstart="impact('heavy')">impact</button><br/><br/>
+
+    <h3>Gesture selection</h3>
+    <button ontouchstart="gestureSelectionStart()">start</button>&nbsp;
+    <button ontouchstart="gestureSelectionChanged()">changes</button>&nbsp;
+    <button ontouchstart="gestureSelectionEnd()">end</button><br/><br/>
+  </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+
+
+
+  function onSuccess() {
+    console.log("OK");
+  }
+
+  function vibrate() {
+    navigator.vibrate(3000);
+
+  }
+
+  function vibrate2() {
+    navigator.vibrate(200);
+  }
+
+  function vibrate3() {
+    navigator.vibrate(500);
+  }
+
+  function vibrate4() {
+    navigator.vibrate();
+  }
+
+  function onError(msg) {
+    alert("Failed: " + msg);
+  }
+
+  function weakBoom() {
+    if (window.TapticEngine) {
+      TapticEngine.unofficial.weakBoom();
+    }
+  }
+
+  function strongBoom() {
+    if (window.TapticEngine) {
+      TapticEngine.unofficial.strongBoom();
+    }
+  }
+
+  function burst() {
+    if (window.TapticEngine) {
+      TapticEngine.unofficial.burst();
+    }
+  }
+
+  function notification(type) {
+    if (window.TapticEngine) {
+      TapticEngine.notification({
+        type: type
+      }, onSuccess, onError);
+    }
+  }
+
+  function selection() {
+    if (window.TapticEngine) {
+      TapticEngine.selection(onSuccess, onError);
+    }
+  }
+
+  function impact(style) {
+    if (window.TapticEngine) {
+      TapticEngine.impact({
+        style: style
+      }, onSuccess, onError);
+    }
+  }
+
+  function gestureSelectionStart() {
+    if (window.TapticEngine) {
+      TapticEngine.gestureSelectionStart(onSuccess, onError);
+    }
+  }
+
+  function gestureSelectionChanged() {
+    if (window.TapticEngine) {
+      TapticEngine.gestureSelectionChanged(onSuccess, onError);
+    }
+  }
+
+  function gestureSelectionEnd() {
+    if (window.TapticEngine) {
+      TapticEngine.gestureSelectionEnd(onSuccess, onError);
+    }
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$USER_HOME$/sandboxes/_remove/crosswalktest/platforms/android" value="5730213236000" />
+        <entry key="$USER_HOME$/sandboxes/_remove/mapboxtest/platforms/android" value="5817108576000" />
+        <entry key="$USER_HOME$/sandboxes/_remove/mapboxtest8/platforms/android" value="4322014596000" />
+        <entry key="$USER_HOME$/sandboxes/_remove/mapboxtest9/platforms/android" value="5762688042000" />
+        <entry key="$USER_HOME$/sandboxes/glueonhelloworld" value="1475764624000" />
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/sandboxes/nativescript-local-notifications/native-src/android" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+</project>

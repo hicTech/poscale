@@ -23,6 +23,9 @@
 		DD4BB1BAFA9C496A9C69EAB7 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E994D2898E034785B8AD1D8C /* CDVStatusBar.m */; };
 		DE1BAE303CE74C7D85C7C283 /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = C597FBFCBD1F4C02BC34B76A /* Insomnia.m */; };
 		E4EBE7BFA8124A88AC637672 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C272320324C49A2A6F63111 /* CDVDevice.m */; };
+		C8EFB89404764C6AB3B78025 /* TapticEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 497BFF0BFF4E4070940D7F2B /* TapticEngine.m */; };
+		0427B99F8CA64ACDB402A26F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0EECC3942C434C2C8427AA89 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 055C027B66464E3D8EB8F28B /* CDVVibration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,11 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = poscale/config.xml; sourceTree = "<group>"; };
+		497BFF0BFF4E4070940D7F2B /* TapticEngine.m */ = {isa = PBXFileReference; name = "TapticEngine.m"; path = "cordova-plugin-taptic-engine/TapticEngine.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		145E0C0FF8C34EFF827BAF21 /* TapticEngine.h */ = {isa = PBXFileReference; name = "TapticEngine.h"; path = "cordova-plugin-taptic-engine/TapticEngine.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		055C027B66464E3D8EB8F28B /* CDVVibration.m */ = {isa = PBXFileReference; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		040689DE3D1C45BDBD6893CB /* CDVVibration.h */ = {isa = PBXFileReference; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				AEE1CE2D9DD741069E20B9BD /* CoreMotion.framework in Frameworks */,
+				0427B99F8CA64ACDB402A26F /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				A3751345B9D040E39F04F6BC /* CoreMotion.framework */,
+				A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +209,10 @@
 				37DD2321546E4F13BBB4ABBE /* Insomnia.h */,
 				E994D2898E034785B8AD1D8C /* CDVStatusBar.m */,
 				7BCF40C2B22249C08B5BE930 /* CDVStatusBar.h */,
+				497BFF0BFF4E4070940D7F2B /* TapticEngine.m */,
+				145E0C0FF8C34EFF827BAF21 /* TapticEngine.h */,
+				055C027B66464E3D8EB8F28B /* CDVVibration.m */,
+				040689DE3D1C45BDBD6893CB /* CDVVibration.h */,
 			);
 			name = Plugins;
 			path = poscale/Plugins;
@@ -345,6 +359,8 @@
 				43B0EE894B25482F9ADD1185 /* CDVAccelerometer.m in Sources */,
 				DE1BAE303CE74C7D85C7C283 /* Insomnia.m in Sources */,
 				DD4BB1BAFA9C496A9C69EAB7 /* CDVStatusBar.m in Sources */,
+				C8EFB89404764C6AB3B78025 /* TapticEngine.m in Sources */,
+				0EECC3942C434C2C8427AA89 /* CDVVibration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

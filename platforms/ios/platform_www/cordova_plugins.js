@@ -53,6 +53,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
+    },
+    {
+      "id": "cordova-plugin-taptic-engine.TapticEngine",
+      "file": "plugins/cordova-plugin-taptic-engine/www/TapticEngine.js",
+      "pluginId": "cordova-plugin-taptic-engine",
+      "clobbers": [
+        "TapticEngine"
+      ]
+    },
+    {
+      "id": "cordova-plugin-vibration.notification",
+      "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+      "pluginId": "cordova-plugin-vibration",
+      "merges": [
+        "navigator"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -61,6 +77,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-device-motion": "2.0.1",
     "cordova-plugin-fastclick": "1.0.0",
     "cordova-plugin-insomnia": "4.3.0",
-    "cordova-plugin-statusbar": "2.4.3"
+    "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-taptic-engine": "2.2.0",
+    "cordova-plugin-vibration": "3.1.1"
   };
 });
