@@ -647,6 +647,120 @@ Sets a scrollable area with touch support
   width: 100%;
   height: 100%;
 }
+.Toggles .Toggles-wrapper {
+  display: table;
+}
+.Toggles .Toggles-wrapper .Toggle {
+  display: table-row;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input {
+  display: table-cell;
+  width: 60px;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"],
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-top: 2px;
+  width: 60px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.15);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label:before,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label:before,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label:after,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label:before,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: rgba(250, 255, 255, 0.035);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label:after,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label:after {
+  content: '';
+  color: green;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 22px;
+  background-color: rgba(0, 0, 0, 0.15);
+  text-align: center;
+  line-height: 22px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  -ms-border-radius: 28px;
+  -o-border-radius: 28px;
+  border-radius: 28px;
+  -webkit-transition: margin 0.3s, background 0.3s;
+  -moz-transition: margin 0.3s, background 0.3s;
+  -o-transition: margin 0.3s, background 0.3s;
+  transition: margin 0.3s, background 0.3s;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"]:checked + label,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"]:checked + label {
+  background-color: rgba(250, 120, 80, 0.4);
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"]:checked + label:after,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"]:checked + label:after {
+  content: "";
+  margin-left: 30px;
+  background-color: rgba(250, 120, 80, 0.4);
+  color: #fff;
+  text-align: center;
+  line-height: 22px;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label > div,
+.Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label > div {
+  position: absolute;
+  left: 85px;
+  width: 85px;
+}
+.Toggles .Toggles-wrapper .Toggle .Toggle-label {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding: 0px 0px 0px 10px;
+  font-size: 0.8em;
+  font-weight: 300;
+  line-height: 20px;
+}
 /* vedi DEVICES TABLE */
 body {
   background: #181c24;
@@ -1879,6 +1993,7 @@ body .container .iphone_model_row {
   text-align: center;
   text-transform: none;
   color: #fb764b;
+  font-size: 0.75em;
 }
 body .container .options_row {
   height: 85px;
@@ -1953,6 +2068,50 @@ body .place_container .place .circle_place span {
   width: 100%;
   text-align: center;
   opacity: 0;
+}
+body .loading_container {
+  display: none;
+}
+body .loading_container i {
+  font-size: 3em;
+  color: #5c5b60;
+  text-shadow: 0px 0px 4px rgba(92, 57, 49, 0.9);
+}
+body .rotating {
+  -webkit-animation: rotating 3s linear infinite;
+  -moz-animation: rotating 3s linear infinite;
+  -ms-animation: rotating 3s linear infinite;
+  -o-animation: rotating 3s linear infinite;
+  animation: rotating 3s linear infinite;
+}
+@-webkit-keyframes rotating {
+  /* Safari and Chrome */
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 body .bounce {
   animation: bounce 2s infinite;
@@ -2087,8 +2246,8 @@ body .bounce_up {
   }
 }
 body .flash {
-  animation: flash 0.3s;
-  -webkit-animation: flash 0.3s;
+  animation: flash 0.2s;
+  -webkit-animation: flash 0.2s;
 }
 @-webkit-keyframes flash {
   0% {
@@ -2102,8 +2261,8 @@ body .flash {
   }
 }
 body .littleFlash {
-  animation: littleFlash 0.3s;
-  -webkit-animation: littleFlash 0.3s;
+  animation: littleFlash 0.2s;
+  -webkit-animation: littleFlash 0.2s;
 }
 @-webkit-keyframes littleFlash {
   0% {
@@ -2117,8 +2276,8 @@ body .littleFlash {
   }
 }
 body .tinyFlash {
-  animation: tinyFlash 0.3s;
-  -webkit-animation: tinyFlash 0.3s;
+  animation: tinyFlash 0.2s;
+  -webkit-animation: tinyFlash 0.2s;
 }
 @-webkit-keyframes tinyFlash {
   0% {
@@ -2130,4 +2289,41 @@ body .tinyFlash {
   100% {
     box-shadow: inset 0px 0px 80px 40px rgba(251, 118, 75, 0), 0px 10px 20px rgba(0, 0, 0, 0.3), inset 0px 0px 10px 2px rgba(251, 118, 75, 0.1);
   }
+}
+body .autotare_arc {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  bottom: 50%;
+  height: 50%;
+  left: -10000em;
+  overflow: hidden;
+  padding: 10000em 0 0 10000em;
+  position: absolute;
+  right: 50%;
+  top: -10000em;
+  transform-origin: 100% 100%;
+  transform: rotateZ(-75deg) rotateX(0deg) skewX(50deg);
+  width: 50%;
+}
+body .autotare_arc:before {
+  border-radius: 50%;
+  border: solid 20px rgba(251, 118, 75, 0.18);
+  box-shadow: inset 0px 0px 60px 30px rgba(251, 118, 75, 0.03);
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 200%;
+  transform: skewX(-50deg);
+  width: 200%;
+}
+body .autotare_arc.active:before {
+  box-shadow: inset 0px 0px 60px 30px rgba(251, 118, 75, 0.25);
+}
+body .Toggle-input.auto_tare {
+  opacity: 0.25;
+}
+body .Toggle-input.auto_tare.active {
+  opacity: 1 !important;
 }

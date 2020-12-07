@@ -8,29 +8,64 @@
 //});
 
 
-function autoTare(val){
-    if(val >1 && val <=3){
-        doubleBurst();
-    }
-    
-    
-    //if(val >1 && val <=2){
-        //burst();
-    //}
-    
-    if(val >0.09 && val <=1){
-        strongBoom();
-    }
 
-    if(val >0.02 && val <=0.09){
-        boom();
+
+function autoTare(val,val_delta){
+
+    
+    delta = val_delta || 100;
+    tareProgressEnded();
+
+    $(".autotare_arc").removeClass("active");
+
+    if(!$('[name="checkbox"]').is(":checked"))
+        return false;
+
+
+    $(".autotare_arc").addClass("active");
+    tareInProgressLoading();
+
+    disableTopAndButtonIndicators();
+    
+    if(val <=4 && val > 0.5){
+        if(delta < 0.05){
+            tripleBurst();
+        }else{
+            doubleBurst();
+        }
+    }else{
+        if(val <=0.5 && val >0.04){
+            if(delta < 0.02){
+                burst();
+            }else{
+                boom();
+            }
+        }
+        else{
+            if(val <=0.04 && val > -0.3){
+                stopAutoTare();
+            }
+            
+        }
     }
+    
+        
+    
+    
+    
+    
 
     
 
      
 
     
+}
+
+function stopAutoTare(){
+    $('[name="checkbox"]').prop('checked', false);
+    $(".autotare_arc").removeClass("active");
+    tareProgressEnded();
 }
 
 function boom(){
@@ -58,28 +93,41 @@ function doubleBurst(){
     },400)
 }
 
+function tripleBurst(){
+    burst();
+    setTimeout(function(){
+        burst();
+    },300);
+    setTimeout(function(){
+        burst();
+    },600)
+}
+
 
 
 
 function flash(){
+    
     $(".tachometer").addClass("flash");
     setTimeout(function(){
         $(".tachometer").removeClass("flash");
-    },360)
+    },300)
 }
 
 
 function littleFlash(){
+    
     $(".tachometer").addClass("littleFlash");
     setTimeout(function(){
         $(".tachometer").removeClass("littleFlash");
-    },360)
+    },300)
 }
 
 
 function tinyFlash(){
+    
     $(".tachometer").addClass("tinyFlash");
     setTimeout(function(){
         $(".tachometer").removeClass("tinyFlash");
-    },360)
+    },300)
 }

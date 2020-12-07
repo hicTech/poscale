@@ -7,6 +7,8 @@ dalla directory www/css/ lancia lessc balance.less balance.css
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,900&display=swap');
 @import "cssglobal/flex";
+@import "csscore/toggles";
+
 
 @size: 350px;
 @num_text_color: #fcb5a7;
@@ -470,6 +472,7 @@ body{
         text-align: center;
         text-transform: none;
         color: #fb764b;
+        font-size: 0.75em;
       }
 
       .options_row{
@@ -577,6 +580,53 @@ body{
         }
       }
     }
+
+    .loading_container{
+      display: none;
+      i{
+        font-size: 3em;
+        color: #5c5b60;
+        text-shadow: 0px 0px 4px rgba(92,57,49,0.9);
+      }
+    }
+
+    .rotating {
+      -webkit-animation: rotating 3s linear infinite;
+      -moz-animation: rotating 3s linear infinite;
+      -ms-animation: rotating 3s linear infinite;
+      -o-animation: rotating 3s linear infinite;
+      animation: rotating 3s linear infinite;
+    }
+
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
 
 
 
@@ -728,8 +778,8 @@ body{
 
 
 .flash {
-	animation: flash .300s;
-	-webkit-animation: flash .300s;
+	animation: flash .200s;
+	-webkit-animation: flash .200s;
 }
 
 
@@ -751,8 +801,8 @@ body{
 
 
 .littleFlash {
-	animation: littleFlash .300s;
-	-webkit-animation: littleFlash .300s;
+	animation: littleFlash .200s;
+	-webkit-animation: littleFlash .200s;
 }
 
 
@@ -774,8 +824,8 @@ body{
 
 
 .tinyFlash {
-	animation: tinyFlash .300s;
-	-webkit-animation: tinyFlash .300s;
+	animation: tinyFlash .200s;
+	-webkit-animation: tinyFlash .200s;
 }
 
 
@@ -794,6 +844,56 @@ body{
                 inset 0px 0px 10px 2px rgba(251, 118, 75, 0.1);
 	}
 }
+
+
+
+.autotare_arc {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+	bottom: 50%;
+	height: 50%;
+	left: -10000em;
+	overflow: hidden;
+	padding: 10000em 0 0 10000em;
+	position: absolute;
+	right: 50%;
+	top: -10000em;
+	transform-origin: 100% 100%;
+	transform: rotateZ(-75deg) rotateX(0deg) skewX(50deg);
+	width: 50%;
+	&:before {
+		border-radius: 50%;
+    border: solid 20px rgba(251,118,75,0.18);
+    box-shadow: inset 0px 0px 60px 30px rgba(251, 118, 75, 0.03);
+		box-sizing: border-box;
+		content: '';
+		display: block;
+		height: 200%;
+		transform: skewX(-50deg);
+		width: 200%;
+  }
+
+  &.active{
+    
+    &:before {
+      box-shadow: inset 0px 0px 60px 30px rgba(251, 118, 75, 0.25);
+    }
+  }
+}
+
+
+
+
+  .Toggle-input.auto_tare{
+    opacity: 0.25;
+
+    &.active{
+      opacity: 1 !important;
+    }
+  }
+
 
 
 }

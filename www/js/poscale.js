@@ -2,6 +2,7 @@
 var watchID = null;
 var x_values = [];
 var y_values = [];
+var last_2_tare = [];
 
 var config = {
     frequency: 1,                       // frequenza con cui memorizzo valori nel registro
@@ -10,24 +11,29 @@ var config = {
     y_delta_gain: 25,                   // fattore moltiplicativo dello spostamento verticale dell'indicatore di bolla
     y_initial: 0.8,                       // scostamento iniziale rispetto all'orrizzontale
     
-    measure_frequency:1600,             // ogni quanto viene fatta la media sui valori e dato il peso
+    measure_frequency:1200,             // ogni quanto viene fatta la media sui valori e dato il peso
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
+
 
 function onDeviceReady() {
 
     window.plugins.insomnia.keepAwake();
 
-    var $delta_indicator = $(".delta_indicator");
+    //var $delta_indicator = $(".delta_indicator");
     var $x = $("#x");
     var $y = $("#y");
     var $model = $("#model");
     var $group = $("#group");
     var $line = $(".line");
 
+
+
     startWatch();
     bindClick();
+    
     setModel($model, $group);
     disallowOverscroll();
 
@@ -36,13 +42,13 @@ function onDeviceReady() {
     /* bolla */
     setInterval(function(){
         var x_delta = x_values[0] * config.x_delta_gain +"px"
-        $delta_indicator.css("margin-left",x_delta)
+        //$delta_indicator.css("margin-left",x_delta)
         
         var y_delta = y_values[0]* config.y_delta_gain;
             y_delta = y_delta + (config.y_delta_gain * config.y_initial);
             y_delta = y_delta +"px";
         //console.log(y_delta)
-        $delta_indicator.css("margin-top",y_delta)
+        //$delta_indicator.css("margin-top",y_delta)
         
     },config.delta_frequency_upadete)
     
@@ -111,6 +117,8 @@ function bindClick(){
     })
 
 }
+
+
 
 
 

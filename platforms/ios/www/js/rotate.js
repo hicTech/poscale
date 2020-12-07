@@ -9,7 +9,7 @@ function rotate($line,val){
     var num = val * 100;
     var ratio = 6.5901;
 
-
+    
 
     
 
@@ -31,19 +31,19 @@ function rotate($line,val){
         }
         
         if(num > 80 && num <= 100){
-            ratio = 6.42;
+            ratio = 6.75;
         }
         
         if(num > 100 && num <= 120){
-            ratio = 6.5;
+            ratio = 6.60;
         }
         
         if(num > 120 && num <= 140){
-            ratio = 6.19;
+            ratio = 6.6;
         }
 
         if(num > 140 && num <= 160){
-            ratio = 6.22;
+            ratio = 6.1;
         }
 
         if(num > 160 && num <= 180){
@@ -65,7 +65,9 @@ function rotate($line,val){
 
     var deg_decrement = (num / ratio ) * 10; // ogni tacca da un grammo equivale a 10° in meno
     var degrees = deg_decrement - 165;
-    var exact_value = (deg_decrement/10).toFixed(2)
+    var exact_value = (deg_decrement/10).toFixed(2);
+
+    
 
     // ruoto la lancetta
     $line.css({'transform' : 'rotate('+ degrees +'deg)'});
@@ -75,10 +77,7 @@ function rotate($line,val){
     
     
 
-    $(".bottom_indicator").removeClass("active");
-    $(".top_indicator").removeClass("active");
-    $(".bottom_indicator").removeClass("green");
-    $(".top_indicator").removeClass("green");
+    disableTopAndButtonIndicators();
 
 
     if( exact_value >= 0 && exact_value < 2.5){
@@ -101,15 +100,30 @@ function rotate($line,val){
         }
     }
 
+
+    last_2_tare.push(parseFloat(exact_value));
+    last_2_tare = last_2_tare.slice(-2);
     
-    autoTare(exact_value);
+    var delta = last_2_tare[0] - last_2_tare[1]; // differenza fra gli ultimi due valori di exact_value
+    
+
+    autoTare(exact_value, delta);
+
+
+    if(exact_value<=4 && exact_value>=0){
+        enableToggleAutoTare();
+    }
+    else{
+        disableToggleAutoTare();
+        stopAutoTare();
+    }
 
 
 
+    
 
 
-
-    if(exact_value >= -0.15 && exact_value <= 0.15){
+    if(exact_value <= 0.04 && exact_value > -0.3 ){
         $(".exact_value").addClass("in_bolla");
         $(".place_container").addClass("active");
     }
@@ -122,11 +136,40 @@ function rotate($line,val){
     // solo di visualizzazione per sviluppare
     $("#y").html(num);
     $("#deg").html(deg_decrement);
-    
 
-
-    
     
     
     
 }
+
+
+
+
+function enableToggleAutoTare(){
+    $(".Toggle-input.auto_tare").addClass("active");
+    $(".Toggle-input.auto_tare input").prop("disabled", false);
+}
+
+function disableToggleAutoTare(){
+    $(".Toggle-input.auto_tare").removeClass("active");
+    $(".Toggle-input.auto_tare input").prop("disabled", true);
+}
+
+function disableTopAndButtonIndicators(){
+    $(".bottom_indicator").removeClass("active");
+    $(".top_indicator").removeClass("active");
+    $(".bottom_indicator").removeClass("green");
+    $(".top_indicator").removeClass("green");
+}
+
+function tareInProgressLoading(){
+    $(".place_container").hide();
+    $(".loading_container").show();
+}
+
+function tareProgressEnded(){
+    $(".place_container").show();
+    $(".loading_container").hide();
+}
+
+
