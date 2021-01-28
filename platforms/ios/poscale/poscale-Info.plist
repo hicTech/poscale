@@ -30,7 +30,7 @@
 		<true/>
 	</dict>
 	<key>NSMainNibFile~ipad</key>
-	<string/>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>t</string>
 	<key>UIRequiresFullScreen</key>

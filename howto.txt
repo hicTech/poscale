@@ -8,3 +8,15 @@ viene fatto il build, a partire da questa web app, nella cartella platforms/ios
 -- Build del css --
 Dalla directory www/css/ lancia:
 lessc balance.less balance.css
+
+
+
+-- Note sviluppo --
+
+@start_line nel .less e
+start_line nel .js
+devono essere uguali e definiscono l'angolo da cui parte il quadrante 
+0       : ore 12
+90      : ore 9
+180     : ore 6
+270     : ore 3

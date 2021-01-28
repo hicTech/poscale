@@ -655,7 +655,7 @@ Sets a scrollable area with touch support
 }
 .Toggles .Toggles-wrapper .Toggle .Toggle-input {
   display: table-cell;
-  width: 60px;
+  width: 85px;
 }
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"],
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] {
@@ -674,14 +674,14 @@ Sets a scrollable area with touch support
   -ms-user-select: none;
   user-select: none;
   margin-top: 2px;
-  width: 60px;
-  height: 30px;
+  width: 85px;
+  height: 42.5px;
   background-color: rgba(255, 255, 255, 0.15);
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px;
+  -webkit-border-radius: 42.5px;
+  -moz-border-radius: 42.5px;
+  -ms-border-radius: 42.5px;
+  -o-border-radius: 42.5px;
+  border-radius: 42.5px;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   -o-transition: background 0.3s;
@@ -702,15 +702,16 @@ Sets a scrollable area with touch support
   bottom: 2px;
   right: 2px;
   background-color: rgba(250, 255, 255, 0.035);
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px;
+  -webkit-border-radius: 42.5px;
+  -moz-border-radius: 42.5px;
+  -ms-border-radius: 42.5px;
+  -o-border-radius: 42.5px;
+  border-radius: 42.5px;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   -o-transition: background 0.3s;
   transition: background 0.3s;
+  border: solid 2px rgba(255, 255, 255, 0.2);
 }
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label:after,
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label:after {
@@ -719,15 +720,15 @@ Sets a scrollable area with touch support
   top: 4px;
   left: 4px;
   bottom: 4px;
-  width: 22px;
+  width: 34.5px;
   background-color: rgba(0, 0, 0, 0.15);
   text-align: center;
-  line-height: 22px;
-  -webkit-border-radius: 28px;
-  -moz-border-radius: 28px;
-  -ms-border-radius: 28px;
-  -o-border-radius: 28px;
-  border-radius: 28px;
+  line-height: 34.5px;
+  -webkit-border-radius: 40.5px;
+  -moz-border-radius: 40.5px;
+  -ms-border-radius: 40.5px;
+  -o-border-radius: 40.5px;
+  border-radius: 40.5px;
   -webkit-transition: margin 0.3s, background 0.3s;
   -moz-transition: margin 0.3s, background 0.3s;
   -o-transition: margin 0.3s, background 0.3s;
@@ -740,11 +741,11 @@ Sets a scrollable area with touch support
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"]:checked + label:after,
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"]:checked + label:after {
   content: "";
-  margin-left: 30px;
+  margin-left: 42.5px;
   background-color: rgba(250, 120, 80, 0.4);
   color: #fff;
   text-align: center;
-  line-height: 22px;
+  line-height: 34.5px;
 }
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="checkbox"] + label > div,
 .Toggles .Toggles-wrapper .Toggle .Toggle-input input[type="radio"] + label > div {
@@ -761,7 +762,6 @@ Sets a scrollable area with touch support
   font-weight: 300;
   line-height: 20px;
 }
-/* vedi DEVICES TABLE */
 body {
   background: #181c24;
   font-family: 'Montserrat', sans-serif;
@@ -857,7 +857,6 @@ body .container {
 }
 body .container .tachometer {
   background: #181922;
-  margin: 40px auto 20px;
   width: 350px;
   height: 350px;
   border: 1px solid rgba(218, 139, 125, 0.1);
@@ -877,7 +876,7 @@ body .container .tachometer .line {
   margin: -120px -1px 0;
   padding: 120px 1px 0;
   z-index: 2;
-  transform: rotate(-30deg);
+  transform: rotate(-165deg);
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
@@ -921,13 +920,13 @@ body .container .tachometer .line:before {
 body .container .tachometer .line .exact_value {
   position: absolute;
   color: #181922;
-  right: -17px;
+  right: -21px;
   bottom: 80px;
   background-color: #fb764b;
   padding: 4px 0px;
-  width: 35px;
+  width: 45px;
   text-align: center;
-  font-size: 0.95em;
+  font-size: 1.25em;
   font-weight: 700;
   border-radius: 6px;
 }
@@ -1989,7 +1988,7 @@ body .container .tachometer.oz .bar div:nth-child(even) b .num_text:after {
   content: "";
 }
 body .container .iphone_model_row {
-  height: 30px;
+  height: 40px;
   text-align: center;
   text-transform: none;
   color: #fb764b;
@@ -2012,25 +2011,21 @@ body .container .options_row .single_option.active {
   color: #fb764b;
   text-shadow: 0px 0px 15px;
 }
-body .container .hints_row {
-  height: 200px;
-  text-transform: initial;
+body .logo_row {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  height: 50px;
 }
-body .container .hints_row ol {
-  width: 80%;
-  font-size: 0.85em;
+body .logo_row img {
+  width: 55px;
+  margin-bottom: -8px;
 }
-body.group_a .place_container {
-  top: 740px;
-}
-body.group_b .place_container {
-  top: 740px;
-}
-body.group_c .place_container {
-  top: 575px;
-}
-body.group_d .place_container {
-  top: 640px;
+body .logo_row a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.25;
+  font-size: 0.9em;
 }
 body .place_container {
   position: fixed;
@@ -2040,7 +2035,7 @@ body .place_container {
   -moz-transition: all 150ms ease-out;
   -o-transition: all 150ms ease-out;
   transition: all 150ms ease-out;
-  opacity: 0.25;
+  opacity: 0.1 !important;
 }
 body .place_container.active {
   opacity: 1 !important;
@@ -2050,14 +2045,14 @@ body .place_container.active span {
 }
 body .place_container .place {
   width: 100%;
-  height: 65px;
+  height: 90px;
   position: relative;
 }
 body .place_container .place .circle_place {
-  width: 65px;
-  height: 65px;
+  width: 300px;
+  height: 90px;
   background-color: #fb764b;
-  border-radius: 50%;
+  border-radius: 50px;
   border: solid 3px;
   box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -2128,7 +2123,7 @@ body .bounce {
     -webkit-transform: translateY(0);
   }
   40% {
-    -webkit-transform: translateY(-30px);
+    -webkit-transform: translateY(-20px);
   }
   60% {
     -webkit-transform: translateY(-15px);
@@ -2309,7 +2304,7 @@ body .autotare_arc {
 }
 body .autotare_arc:before {
   border-radius: 50%;
-  border: solid 20px rgba(251, 118, 75, 0.18);
+  border: solid 20px rgba(251, 118, 75, 0.1);
   box-shadow: inset 0px 0px 60px 30px rgba(251, 118, 75, 0.03);
   box-sizing: border-box;
   content: '';
@@ -2321,9 +2316,93 @@ body .autotare_arc:before {
 body .autotare_arc.active:before {
   box-shadow: inset 0px 0px 60px 30px rgba(251, 118, 75, 0.25);
 }
+body .autotare_arc.available:before {
+  border: solid 20px rgba(251, 118, 75, 0.35);
+}
 body .Toggle-input.auto_tare {
-  opacity: 0.25;
+  opacity: 0.15;
 }
 body .Toggle-input.auto_tare.active {
   opacity: 1 !important;
+}
+body .popup {
+  display: none;
+}
+.poscale-btn {
+  background-color: #fb764b;
+  padding: 11px 30px;
+  border-radius: 5px;
+}
+body.show_popup .popup {
+  z-index: 999;
+  text-transform: none;
+  display: block !important;
+}
+body.show_popup .popup h2 {
+  color: #fb764b;
+}
+body.show_popup .popup .popup-body {
+  position: relative;
+  width: 300px;
+  height: 260px;
+  background-color: #030406;
+  border-radius: 20px;
+  box-shadow: 0px 0px 60px 20px rgba(251, 118, 75, 0.075);
+  border: solid 1px rgba(251, 118, 75, 0.1);
+}
+body.show_popup .container {
+  filter: blur(3px);
+  /* Someday, sigh ... */
+  -webkit-filter: blur(3px);
+  /* Prefixed CSS3 blur filters */
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
+  /* IE lte 9 */
+}
+/*
+      _            _               
+   __| | _____   _(_) ___ ___  ___ 
+  / _` |/ _ \ \ / / |/ __/ _ \/ __|
+ | (_| |  __/\ V /| | (_|  __/\__ \
+  \__,_|\___| \_/ |_|\___\___||___/
+                                   
+    */
+body.group_a .tachometer {
+  transform: scale(1.1);
+  margin: 40px auto 20px;
+}
+body.group_a .place_container {
+  top: 740px;
+}
+body.group_a .logo_row {
+  top: 660px;
+}
+body.group_b .tachometer {
+  transform: scale(1);
+  margin: 40px auto 20px;
+}
+body.group_b .place_container {
+  top: 740px;
+}
+body.group_b .logo_row {
+  top: 660px;
+}
+body.group_c .tachometer {
+  transform: scale(1);
+  margin: 40px auto 20px;
+}
+body.group_c .place_container {
+  top: 575px;
+}
+body.group_d .tachometer {
+  transform: scale(0.9);
+  margin: 15px auto 20px;
+}
+body.group_d .place_container {
+  top: 655px;
+}
+body.group_d .logo_row {
+  top: 575px;
 }

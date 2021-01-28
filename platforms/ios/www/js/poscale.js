@@ -1,18 +1,27 @@
+var start_line = 165;
+
 
 var watchID = null;
 var x_values = [];
 var y_values = [];
-var last_2_tare = [];
+var tare_values = [];                   // usato per memorizzare le ultime 8 letture in fase di taratura
+
+var ranges = { range_1 : [], range_2 : [], range_3 : [], current_range: "" }; // serve per uscire dall'auto tare se questo è bloccato (ovvero le vibrazioni non riescono a muovere significativamente l'iphone)
+
+var baypass = false;                    // indica a autoTare che è in corso un tentativo di slocco e quindi salta le vibrazioni canoniche e ne fa una più forte
 
 var config = {
     frequency: 1,                       // frequenza con cui memorizzo valori nel registro
     delta_frequency_upadete: 250,       // frequenza di aggiornamento dell'indicatore di bolla
     x_delta_gain: 5,                   // fattore moltiplicativo dello spostamento orizzontale dell'indicatore di bolla
     y_delta_gain: 25,                   // fattore moltiplicativo dello spostamento verticale dell'indicatore di bolla
-    y_initial: 0.8,                       // scostamento iniziale rispetto all'orrizzontale
-    
+    y_initial: 1.15,                     // fissa lo scotamento dall'orrizontale perchè la lancetta segni zero più è grande più il telefono parte inclinato per segnare zero
+                                        // cambia rispetto ai modelli e viene quindi settato dinamicamente in rotate.js
+                                        // 1.15 è il valore della famiglia group_b
+    try_to_unlock: 4,                   // quante volte provo a forza lo sblocco in fase di taratura dandogli una vibrazione superiore
     measure_frequency:1200,             // ogni quanto viene fatta la media sui valori e dato il peso
 }
+
 
 document.addEventListener("deviceready", onDeviceReady, false);
 

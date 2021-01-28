@@ -47,7 +47,41 @@
     <body>
         
         
-        
+        <div class="_extender popup">
+            <div class="_padder-center">
+                <div class="popup-body" >
+                    <div class="_extender">
+                        <div class="_rows">
+                        
+                            <div class="_cell" style="height: 60px;">
+                                <div class="_padder-center">
+                                    <h2>Auto-tare terminated</h2>
+                                </div>
+                            </div>
+    
+                            <div class="_cell _flex">
+                                <div class="_padder-center">
+                                    <div style="text-transform: none; opacity: 0.75; padding: 0px 35px; text-align: center;">
+                                        Auto-tare process was terminated cause the iPhone seems to be stucked on the bottle.<br>
+                                        Try to reposition both the bottle and the iPhone and restart auto-tare.<br>
+                                        Visit <a href="https://hictech.github.io/poscale.com/" target="_blanck">www.poscale.com</a> for more info
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="_cell" style="height: 80px;" data-role="close_popup">
+                                <div class="_padder-center">
+                                    <div class="poscale-btn">
+                                        OK
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         
         <div class="container _extender" style="position:fixed">
@@ -154,7 +188,7 @@
                         </div>
                                   
                         <div class="line">
-                            <div class="exact_value" id="exact_value">12,3</div>
+                            <div class="exact_value" id="exact_value">12,33</div>
                         </div>
                         <div class="pin">
                             <!--
@@ -167,15 +201,25 @@
                       </div>
                 </div>
                 <div class="_cell iphone_model_row">
-                    iPhone <span id="model">not found</span>
-                    <span id="group"><!-- qui se abilitato in poscale.js viene printato il group corrente ---></span>
+                    <div>
+                        model: <span id="model" style="font-weight: bold;">not found</span>
+                    </div>
+                    <!--
+                    <div>
+                        last vibration: <span id="autotare_last_vibration" style="font-weight: bold;"></span>
+                    </div>
+                    <div>
+                        <span id="group"></span>
+                    </div>
+                    -->
+                    
                 </div>
                 <div class="_cell">
                     <div class="Record required">
                         <div class="Record-wrapper">
                             <div class="Record-Row">
                                 <div class="value">
-                                    <div class="Input" data-hint="Which kind of recorder is this?">
+                                    <div class="Input">
                                         <div class="Toggles">
                                             <div class="Toggles-wrapper" style="margin:10px auto">
                                                 <div class="Toggle">
@@ -185,6 +229,13 @@
                                                     </div>
                                                     <div class="Toggle-label" style="text-transform: none; font-size: 0.85em;">Auto tare</div>
                                                 </div>
+                                                <div id="autotare_arr_target"></div>
+                                                <div id="autotare_delta"></div>
+                                                <div id="avg"></div>
+                                                <div id="last_value"></div>
+                                                <div id="last_delta"></div>
+                                                <div><span id="lock_tentati"></span></div>
+                                                
 
                                             </div>
                                         </div>
@@ -195,37 +246,13 @@
                     </div>
                 </div>
 
-                <div class="hints_row">
+                <div class="logo_row">
                     <div style="text-align: center;">
-                        <img src="img/logo_ps.png" style="width: 120px; margin-top: 55px;"/>
-                        <div style="margin-top: -28px;">
-                            <a href="http://www.poscale.com" style="color: white; text-decoration: none;opacity: 0.25;" target="_blanck">www.poscale.com</a>
+                        <img src="img/logo_ps.png"/>
+                        <div>
+                            <a href="https://hictech.github.io/poscale.com/" target="_blanck">www.poscale.com</a>
                         </div>
                     </div>
-                    
-                    <!--
-                    <div class="_cols">
-                        <div class="_cell _center" style="width:200px">
-                            <img src="img/illustrazione.png" style="width: 100px;"/>
-                        </div>
-                        <div class="_cell _center">
-                            <ol>
-                                <li>
-                                    Posizione l'iPhone (con cover in silicone) in bilico su una bottiglia di vino come mostrato in figura
-                                </li>
-                                <li>
-                                    Con piccoli movimenti fai in modo che la lancetta si posizioni su 0,00. Ciò significa che Poscale è pronto per eseguire la pesata
-                                </li>
-                                <li>
-                                    Posiziona l'oggetto sul disco arancione e nel giro di qualche secondo la lancetta si posizionerà sul peso rilevato
-                                </li>
-                                <li>
-                                    Visita <a href='http://www.poscale.com'>poscale.com</a> per approfondire
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    -->
                 </div>
 
                 <!--    se servono per sviluppare
@@ -240,7 +267,7 @@
                     <div class="place">
                         <div class="_padder-center">
                             <div class="circle_place">
-                                <span>ok</span>
+                                <span><img src="img/weight_icon.png" style="width: 30px;"></span>
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
+		0427B99F8CA64ACDB402A26F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0EECC3942C434C2C8427AA89 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 055C027B66464E3D8EB8F28B /* CDVVibration.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -20,12 +22,10 @@
 		77E9DC1F2500ED45004013AF /* splash@1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E9DC1C2500ED45004013AF /* splash@1.png */; };
 		77E9DC202500ED45004013AF /* splash@3.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E9DC1D2500ED45004013AF /* splash@3.png */; };
 		AEE1CE2D9DD741069E20B9BD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3751345B9D040E39F04F6BC /* CoreMotion.framework */; };
+		C8EFB89404764C6AB3B78025 /* TapticEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 497BFF0BFF4E4070940D7F2B /* TapticEngine.m */; };
 		DD4BB1BAFA9C496A9C69EAB7 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E994D2898E034785B8AD1D8C /* CDVStatusBar.m */; };
 		DE1BAE303CE74C7D85C7C283 /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = C597FBFCBD1F4C02BC34B76A /* Insomnia.m */; };
 		E4EBE7BFA8124A88AC637672 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C272320324C49A2A6F63111 /* CDVDevice.m */; };
-		C8EFB89404764C6AB3B78025 /* TapticEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 497BFF0BFF4E4070940D7F2B /* TapticEngine.m */; };
-		0427B99F8CA64ACDB402A26F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		0EECC3942C434C2C8427AA89 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 055C027B66464E3D8EB8F28B /* CDVVibration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = poscale/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		040689DE3D1C45BDBD6893CB /* CDVVibration.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; };
+		055C027B66464E3D8EB8F28B /* CDVVibration.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; };
+		145E0C0FF8C34EFF827BAF21 /* TapticEngine.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = TapticEngine.h; path = "cordova-plugin-taptic-engine/TapticEngine.h"; sourceTree = "<group>"; };
 		1C272320324C49A2A6F63111 /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		32CA4F630368D1EE00C91783 /* poscale-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "poscale-Prefix.pch"; sourceTree = "<group>"; };
 		34C35917D4484DC49F1BD30F /* CDVDevice.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
 		37DD2321546E4F13BBB4ABBE /* Insomnia.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Insomnia.h; path = "cordova-plugin-insomnia/Insomnia.h"; sourceTree = "<group>"; };
+		497BFF0BFF4E4070940D7F2B /* TapticEngine.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = TapticEngine.m; path = "cordova-plugin-taptic-engine/TapticEngine.m"; sourceTree = "<group>"; };
 		4B6C157ED2E147A18665C7F9 /* CDVAccelerometer.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVAccelerometer.m; path = "cordova-plugin-device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; };
 		63743C2B1BC340399DF263A8 /* CDVAccelerometer.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVAccelerometer.h; path = "cordova-plugin-device-motion/CDVAccelerometer.h"; sourceTree = "<group>"; };
 		6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CDVLaunchScreen.storyboard; path = poscale/CDVLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
@@ -79,6 +83,7 @@
 		77E9DC1D2500ED45004013AF /* splash@3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@3.png"; sourceTree = "<group>"; };
 		7BCF40C2B22249C08B5BE930 /* CDVStatusBar.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* poscale-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "poscale-Info.plist"; path = "poscale/poscale-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
+		A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A3751345B9D040E39F04F6BC /* CoreMotion.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C597FBFCBD1F4C02BC34B76A /* Insomnia.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = Insomnia.m; path = "cordova-plugin-insomnia/Insomnia.m"; sourceTree = "<group>"; };
 		E994D2898E034785B8AD1D8C /* CDVStatusBar.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; };
@@ -86,11 +91,6 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = poscale/config.xml; sourceTree = "<group>"; };
-		497BFF0BFF4E4070940D7F2B /* TapticEngine.m */ = {isa = PBXFileReference; name = "TapticEngine.m"; path = "cordova-plugin-taptic-engine/TapticEngine.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		145E0C0FF8C34EFF827BAF21 /* TapticEngine.h */ = {isa = PBXFileReference; name = "TapticEngine.h"; path = "cordova-plugin-taptic-engine/TapticEngine.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		A2D7F115226B488BAD71A8E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		055C027B66464E3D8EB8F28B /* CDVVibration.m */ = {isa = PBXFileReference; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		040689DE3D1C45BDBD6893CB /* CDVVibration.h */ = {isa = PBXFileReference; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,11 +266,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
-				TargetAttributes = {
-					1D6058900D05DD3D006BFB54 = {
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "poscale" */;
 			compatibilityVersion = "Xcode 11.0";
@@ -383,8 +378,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 6VXN6NRDP4;
+				DEVELOPMENT_TEAM = N52D37Q6CS;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -394,8 +391,9 @@
 				INFOPLIST_FILE = "poscale/poscale-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hictech.poscale;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hictech.poscale2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = povisioninf_profile_poscale2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -408,7 +406,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = N52D37Q6CS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "poscale/poscale-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -416,8 +417,9 @@
 				INFOPLIST_FILE = "poscale/poscale-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hictech.poscale;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hictech.poscale2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ultimo_provisioning_dist;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
